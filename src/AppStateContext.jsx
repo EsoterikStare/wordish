@@ -40,6 +40,8 @@ const userInputReducer = (state, { type, value }) => {
         currentGuess: state.currentGuess.slice(0, state.currentGuess.length - 1) // remove last index
       };
     }
+    // TODO: Create a dialog for win/lose states with reset option and appropriate results info
+    // TODO: Create logic to generate share output with colored grid boxes.
     case "submit": {
       if (state.currentGuess.length === state.wordLength) {
         const guess = state.currentGuess
@@ -102,6 +104,7 @@ const userInputReducer = (state, { type, value }) => {
 };
 
 const AppStateProvider = ({ children }) => {
+  // TODO: Hook up options menu for things like letter count, color mode, and possibly max guesses. 
   const [state, dispatch] = React.useReducer(userInputReducer, {
     currentGuess: [],
     secretWord: selectNewWord(6),

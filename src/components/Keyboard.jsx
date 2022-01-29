@@ -32,6 +32,10 @@ const Keyboard = () => {
     present: 1,
     absent: 0
   };
+
+  // TODO: Improve functionality to be more aware of total count of letters that occur more than once
+  // TODO: e.g. If one of two of the same letter is found, leave the key yellow but show the green letter in the grid
+  // TODO: If all of a letter are found, don't show a yellow grid tile when more of that letter are placed.
   const guessedLetters = state.previousGuesses.reduce((acc, guessArray) => {
     guessArray.forEach(({ guessChar, type }) => {
       const prevType = acc[guessChar];
