@@ -1,27 +1,27 @@
-import React from "react";
-import { createUseStyles } from "react-jss";
-import { Delete } from "react-feather";
+import React from 'react';
+import { createUseStyles } from 'react-jss';
+import { Delete } from 'react-feather';
 
-import Key from "./Key";
-import ActionKey from "./ActionKey";
-import { useAppState } from "../AppStateContext";
+import Key from './Key';
+import ActionKey from './ActionKey';
+import { useAppState } from '../AppStateContext';
 
 const useStyles = createUseStyles({
   keyboardWrapper: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
     marginBottom: 24,
     maxWidth: 800
   },
   keyboardRow: {
-    display: "flex"
+    display: 'flex'
   }
 });
 
-const topRow = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-const middleRow = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
-const bottomRow = ["z", "x", "c", "v", "b", "n", "m"];
+const topRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+const middleRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
+const bottomRow = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
 const Keyboard = () => {
   const { state } = useAppState();
@@ -33,9 +33,16 @@ const Keyboard = () => {
     absent: 0
   };
 
-  // TODO: Improve functionality to be more aware of total count of letters that occur more than once
-  // TODO: e.g. If one of two of the same letter is found, leave the key yellow but show the green letter in the grid
-  // TODO: If all of a letter are found, don't show a yellow grid tile when more of that letter are tried.
+  /**
+   * TODO: Improve functionality to be more aware of total count of letters
+   * TODO: that occur more than once
+   *
+   * TODO: e.g. If one of two of the same letter is found, leave the key yellow
+   * TODO: but show the green letter in the grid
+   *
+   * TODO: If all of a letter are found, don't show a yellow grid tile when more
+   * TODO: of that letter are tried.
+   */
   const guessedLetters = state.previousGuesses.reduce((acc, guessArray) => {
     guessArray.forEach(({ guessChar, type }) => {
       const prevType = acc[guessChar];
@@ -50,15 +57,15 @@ const Keyboard = () => {
     return acc;
   }, {});
 
-  const keyMap = (letter, index) => {
-    return (
-      <Key
-        key={index.toString()}
-        label={letter}
-        guessedLetters={guessedLetters}
-      />
-    );
-  };
+  console.log('Keyboard', { guessedLetters });
+
+  const keyMap = (letter, index) => (
+    <Key
+      key={index.toString()}
+      label={letter}
+      guessedLetters={guessedLetters}
+    />
+  );
 
   return (
     <div className={keyboardWrapper}>

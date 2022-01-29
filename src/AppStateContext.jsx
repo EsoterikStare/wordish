@@ -1,19 +1,20 @@
-import React from "react";
+import React from 'react';
+import { node } from 'prop-types';
 
-import { selectNewWord } from "./words";
+import { selectNewWord } from './words';
 
 const AppStateContext = React.createContext();
 
 const processGuess = (guess, answer) => {
-  const answerArray = answer.toLowerCase().split("");
+  const answerArray = answer.toLowerCase().split('');
   return guess.reduce((acc, { guessChar }, index) => {
     const correctPosition = guessChar.toLowerCase() === answerArray[index];
     const charPresent = answerArray.includes(guessChar.toLowerCase());
     const getGuessType = () => {
       // TODO: Make these guess types a constant and reference them everywhere.
-      if (correctPosition) return "located";
-      if (charPresent) return "present";
-      return "absent";
+      if (correctPosition) return 'located';
+      if (charPresent) return 'present';
+      return 'absent';
     };
     acc.push({ guessChar, type: getGuessType() });
     return acc;
@@ -22,10 +23,10 @@ const processGuess = (guess, answer) => {
 
 const userInputReducer = (state, { type, value }) => {
   switch (type) {
-    case "add": {
+    case 'add': {
       if (
-        state.currentGuess.length < state.wordLength &&
-        state.gameState === "playing"
+        state.currentGuess.length < state.wordLength
+        && state.gameState === 'playing'
       ) {
         return {
           ...state,
@@ -34,66 +35,74 @@ const userInputReducer = (state, { type, value }) => {
       }
       return state;
     }
-    case "remove": {
+    case 'remove': {
+      const sliceIndex = state.currentGuess.length - 1;
       return {
         ...state,
-        currentGuess: state.currentGuess.slice(0, state.currentGuess.length - 1) // remove last index
+        currentGuess: state.currentGuess.slice(0, sliceIndex) // remove last index
       };
     }
-    // TODO: Create a dialog for win/lose states with reset option and appropriate results info
-    // TODO: Create logic to generate share output with colored grid boxes.
-    // TODO: Add check to make sure guess is actually a word. (Wordle does this without a web request...)
-    case "submit": {
+
+    /**
+     * TODO: Create a dialog for win/lose states with reset option and appropriate results info
+     * TODO: Create logic to generate share output with colored grid boxes.
+     * TODO: Check to make sure guess is actually a word. (Wordle does it with no web request...)
+     */
+    case 'submit': {
+      // check guess and either end game or set guess colors and
+      // setup next guess.
       if (state.currentGuess.length === state.wordLength) {
         const guess = state.currentGuess
           .map(({ guessChar }) => guessChar)
-          .join("")
+          .join('')
           .toLowerCase();
         const answer = state.secretWord.toLowerCase();
 
-        // check guess and either end game or set guess colors and
-        // setup next guess.
+        // correct/win!
         if (guess === answer) {
-          // correct/win!
           return {
             ...state,
-            currentGuess: "",
-            gameState: "win",
-            previousGuesses: [
-              ...state.previousGuesses,
-              processGuess(state.currentGuess, state.secretWord)
-            ]
-          };
-        } else if (state.previousGuesses.length + 1 === state.maxGuesses) {
-          // wrong/out of guesses/lose!
-          return {
-            ...state,
-            currentGuess: "",
-            gameState: "lose",
-            previousGuesses: [
-              ...state.previousGuesses,
-              processGuess(state.currentGuess, state.secretWord)
-            ]
-          };
-        } else {
-          // wrong/next guess!
-          return {
-            ...state,
-            currentGuess: "",
+            currentGuess: '',
+            gameState: 'win',
             previousGuesses: [
               ...state.previousGuesses,
               processGuess(state.currentGuess, state.secretWord)
             ]
           };
         }
+
+        // wrong/out of guesses/lose!
+        if (state.previousGuesses.length + 1 === state.maxGuesses) {
+          return {
+            ...state,
+            currentGuess: '',
+            gameState: 'lose',
+            previousGuesses: [
+              ...state.previousGuesses,
+              processGuess(state.currentGuess, state.secretWord)
+            ]
+          };
+        }
+
+        // wrong/next guess!
+        return {
+          ...state,
+          currentGuess: '',
+          previousGuesses: [
+            ...state.previousGuesses,
+            processGuess(state.currentGuess, state.secretWord)
+          ]
+        };
       }
+
+      // If none of these cases, return the original state, unaltered.
       return state;
     }
-    case "reset": {
+    case 'reset': {
       return {
         ...state,
         currentGuess: [],
-        gameState: "playing",
+        gameState: 'playing',
         previousGuesses: [],
         secretWord: selectNewWord(state.wordLength)
       };
@@ -104,27 +113,39 @@ const userInputReducer = (state, { type, value }) => {
   }
 };
 
+/**
+ * TODO: Hook up options menu for things like letter count, color mode, and possibly max guesses.
+ */
 const AppStateProvider = ({ children }) => {
-  // TODO: Hook up options menu for things like letter count, color mode, and possibly max guesses. 
   const [state, dispatch] = React.useReducer(userInputReducer, {
     currentGuess: [],
     secretWord: selectNewWord(6),
     maxGuesses: 7,
     wordLength: 6,
     previousGuesses: [],
-    gameState: "playing"
+    gameState: 'playing'
   });
+
+  const value = React.useMemo(() => ({
+    state,
+    dispatch
+  }), [state, dispatch]);
+
   return (
-    <AppStateContext.Provider value={{ state, dispatch }}>
+    <AppStateContext.Provider value={value}>
       {children}
     </AppStateContext.Provider>
   );
 };
 
+AppStateProvider.propTypes = {
+  children: node.isRequired
+};
+
 const useAppState = () => {
   const context = React.useContext(AppStateContext);
   if (context === undefined) {
-    throw new Error("useAppState must be used within an AppStateProvider");
+    throw new Error('useAppState must be used within an AppStateProvider');
   }
   return context;
 };
