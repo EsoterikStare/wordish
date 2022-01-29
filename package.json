@@ -10,8 +10,8 @@
   "main": "src/index.js",
   "proxy": "localhost:5000",
   "scripts": {
-    "start": "webpack serve --port 3000 --open --hot --mode development",
-    "start:heroku": "npm i && webpack serve --open --mode production",
+    "start": "webpack serve --mode development",
+    "start:heroku": "npm i && npm run build",
     "build": "webpack --mode production"
   },
   "dependencies": {
