@@ -1,2 +1,2 @@
-# wordish
-A riff on the popular Wordle game
+# Wordish
+A riff on the ever-popular game, Wordle
