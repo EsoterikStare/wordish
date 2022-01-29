@@ -42,6 +42,7 @@ const userInputReducer = (state, { type, value }) => {
     }
     // TODO: Create a dialog for win/lose states with reset option and appropriate results info
     // TODO: Create logic to generate share output with colored grid boxes.
+    // TODO: Add check to make sure guess is actually a word. (Wordle does this without a web request...)
     case "submit": {
       if (state.currentGuess.length === state.wordLength) {
         const guess = state.currentGuess

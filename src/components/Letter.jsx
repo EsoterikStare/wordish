@@ -4,6 +4,8 @@ import { createUseStyles } from "react-jss";
 import { colorMap } from "../constants";
 
 const useStyles = createUseStyles({
+  // TODO: Add little "pop" animation when adding a letter
+  // TODO: Add card flip animation on submit
   letter: ({ type }) => ({
     alignItems: "center",
     backgroundColor: colorMap[type],

@@ -5,6 +5,7 @@ import { useAppState } from "./AppStateContext";
 import { Header, Word, Keyboard } from "./components";
 
 const useStyles = createUseStyles({
+  // TODO: Work on overall layout so it's more responsive and correct
   appWrapper: {
     backgroundColor: "#151515",
     display: "flex",

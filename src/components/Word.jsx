@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import Letter from "./Letter";
 
 const useStyles = createUseStyles({
+  // TODO: Add shiver animation on non-word submit
   wordElement: {
     display: "flex"
   }
