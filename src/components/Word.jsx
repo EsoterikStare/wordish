@@ -1,24 +1,22 @@
-import React from "react";
-import { createUseStyles } from "react-jss";
+import React from 'react';
+import { arrayOf, shape, string } from 'prop-types';
+import { Grid } from '@mui/material';
 
-import Letter from "./Letter";
+import Letter from './Letter';
 
-const useStyles = createUseStyles({
-  // TODO: Add shiver animation on non-word submit
-  wordElement: {
-    display: "flex"
-  }
-});
+/**
+ * TODO: Add shiver animation on non-word submit
+ */
+const Word = ({ word }) => (
+  <Grid container item spacing={1}>
+    {word.map(({ guessChar, type }, index) => (
+      <Letter key={index.toString()} guessChar={guessChar} type={type} />
+    ))}
+  </Grid>
+);
 
-const Word = ({ word }) => {
-  const { wordElement } = useStyles();
-  return (
-    <div className={wordElement}>
-      {word.map((letterProps, index) => {
-        return <Letter key={index.toString()} {...letterProps} />;
-      })}
-    </div>
-  );
+Word.propTypes = {
+  word: arrayOf(shape({ guessChar: string, type: string })).isRequired
 };
 
 export default Word;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from '@mui/material';
 import { createUseStyles } from 'react-jss';
 
 import { useAppState } from './AppStateContext';
@@ -70,15 +71,21 @@ const App = () => {
   }, []);
 
   return (
-    <div className={appWrapper}>
-      <Header title="WORDISH" />
-      <div className={wordTilesWrapper}>
-        {getWords().map((word, index) => (
-          <Word key={index.toString()} word={word} />
-        ))}
-      </div>
-      <Keyboard />
-    </div>
+    <Grid alignItems="center" container direction="column" justifyContent="space-around" sx={{ height: '100vh' }}>
+      <Grid item xs="auto">
+        <Header title="WORDISH" />
+      </Grid>
+      <Grid alignItems="center" container item justifyContent="center" xs>
+        <Grid container item spacing={1}>
+          {getWords().map((word, index) => (
+            <Word key={index.toString()} word={word} />
+          ))}
+        </Grid>
+      </Grid>
+      <Grid alignItems="center" container item xs={4}>
+        <Keyboard />
+      </Grid>
+    </Grid>
   );
 };
 

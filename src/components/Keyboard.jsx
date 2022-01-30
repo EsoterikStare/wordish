@@ -52,7 +52,7 @@ const Keyboard = () => {
   );
 
   return (
-    <Grid alignItems="center" container direction="column" spacing={1}>
+    <Grid alignItems="center" container direction="column" item spacing={1}>
       <Grid container item justifyContent="center" spacing={1}>{topRow.map(keyMap)}</Grid>
       <Grid container item justifyContent="center" spacing={1}>{middleRow.map(keyMap)}</Grid>
       <Grid container item justifyContent="center" spacing={1}>
