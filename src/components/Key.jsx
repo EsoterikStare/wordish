@@ -6,9 +6,9 @@ import { useAppState } from '../AppStateContext';
 import { colorMap } from '../constants';
 
 const useStyles = createUseStyles({
-  keyWrapper: {
+  keyWrapper: ({ state }) => ({
     alignItems: 'center',
-    backgroundColor: ({ state }) => colorMap[state] || '#555555',
+    backgroundColor: colorMap[state] || '#555',
     borderRadius: 4,
     color: 'white',
     display: 'flex',
@@ -20,7 +20,7 @@ const useStyles = createUseStyles({
     width: 35,
     cursor: 'pointer',
     userSelect: 'none'
-  }
+  })
 });
 
 const Key = ({ label, guessedLetters }) => {
