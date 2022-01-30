@@ -57,8 +57,6 @@ const Keyboard = () => {
     return acc;
   }, {});
 
-  console.log('Keyboard', { guessedLetters });
-
   const keyMap = (letter, index) => (
     <Key
       key={index.toString()}
