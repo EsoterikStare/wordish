@@ -7,7 +7,7 @@ const { ABSENT, LOCATED, PRESENT } = letterStatus;
 export default createTheme({
   palette: {
     letterStatus: {
-      [ABSENT]: '#252525',
+      [ABSENT]: '#303030',
       [LOCATED]: 'darkolivegreen',
       [PRESENT]: 'darkgoldenrod'
     }
