@@ -23,7 +23,7 @@ const StyledDiv = styled('div')(({ theme, type }) => ({
 }));
 
 const Letter = ({ guessChar, type }) => (
-  <Grid item>
+  <Grid id="letter-grid" item>
     <StyledDiv type={type}>{guessChar.toUpperCase()}</StyledDiv>
   </Grid>
 );

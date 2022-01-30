@@ -27,7 +27,7 @@ const ActionKey = ({ label, action, ariaLabel }) => {
     }
   };
   return (
-    <Grid item>
+    <Grid id="action-key-grid-item" item>
       <StyledButton
         aria-label={ariaLabel || label}
         onClick={dispatchAction}

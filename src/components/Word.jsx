@@ -8,7 +8,7 @@ import Letter from './Letter';
  * TODO: Add shiver animation on non-word submit
  */
 const Word = ({ word }) => (
-  <Grid container item spacing={1}>
+  <Grid id="word-grid" container item justifyContent="center" spacing={1}>
     {word.map(({ guessChar, type }, index) => (
       <Letter key={index.toString()} guessChar={guessChar} type={type} />
     ))}

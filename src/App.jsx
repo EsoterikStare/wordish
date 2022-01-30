@@ -71,20 +71,14 @@ const App = () => {
   }, []);
 
   return (
-    <Grid alignItems="center" container direction="column" justifyContent="space-around" sx={{ height: '100vh' }}>
-      <Grid item xs="auto">
-        <Header title="WORDISH" />
+    <Grid alignItems="center" container flexDirection="column" justifyContent="space-around" sx={{ height: '100vh' }}>
+      <Header title="WORDISH" />
+      <Grid id="words-grid" alignItems="center" container item justifyContent="center" spacing={1}>
+        {getWords().map((word, index) => (
+          <Word key={index.toString()} word={word} />
+        ))}
       </Grid>
-      <Grid alignItems="center" container item justifyContent="center" xs>
-        <Grid container item spacing={1}>
-          {getWords().map((word, index) => (
-            <Word key={index.toString()} word={word} />
-          ))}
-        </Grid>
-      </Grid>
-      <Grid alignItems="center" container item xs={4}>
-        <Keyboard />
-      </Grid>
+      <Keyboard />
     </Grid>
   );
 };

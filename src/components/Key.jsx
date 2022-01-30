@@ -25,7 +25,7 @@ const Key = ({ label, guessedLetters }) => {
   };
   const keyStatus = guessedLetters[label.toLowerCase()];
   return (
-    <Grid item>
+    <Grid id="key-grid" item justifyContent="center">
       <StyledButton
         aria-label={label}
         role="button"
