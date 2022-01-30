@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { oneOfType, node, string } from 'prop-types';
 import { createUseStyles } from 'react-jss';
 
 import { useAppState } from '../AppStateContext';
@@ -7,7 +7,7 @@ import { useAppState } from '../AppStateContext';
 const useStyles = createUseStyles({
   keyWrapper: {
     alignItems: 'center',
-    backgroundColor: '#555555',
+    backgroundColor: '#555',
     borderRadius: 4,
     color: 'white',
     display: 'flex',
@@ -50,8 +50,12 @@ const Key = ({ label, action, ariaLabel }) => {
 
 Key.propTypes = {
   action: string.isRequired,
-  ariaLabel: string.isRequired,
-  label: string.isRequired
+  ariaLabel: string,
+  label: oneOfType([node, string]).isRequired
+};
+
+Key.defaultProps = {
+  ariaLabel: undefined
 };
 
 export default Key;
