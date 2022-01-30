@@ -1,28 +1,21 @@
 import React from 'react';
 import { oneOfType, node, string } from 'prop-types';
-import { createUseStyles } from 'react-jss';
+import { Button, Grid, styled } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
 
-const useStyles = createUseStyles({
-  keyWrapper: {
-    alignItems: 'center',
-    backgroundColor: '#555',
-    borderRadius: 4,
-    color: 'white',
-    display: 'flex',
-    fontSize: 16,
-    fontFamily: 'sans-serif',
-    height: 50,
-    justifyContent: 'center',
-    margin: 3,
-    width: 55,
-    cursor: 'pointer',
-    userSelect: 'none'
-  }
-});
+const StyledButton = styled(Button)(({ theme }) => ({
+  backgroundColor: '#555',
+  color: 'white',
+  fontSize: 12,
+  padding: theme.spacing(2),
+  height: 50,
+  width: 55,
+  minWidth: 55,
+  userSelect: 'none'
+}));
 
-const Key = ({ label, action, ariaLabel }) => {
+const ActionKey = ({ label, action, ariaLabel }) => {
   const { dispatch } = useAppState();
   const dispatchAction = () => {
     dispatch({ type: action });
@@ -33,29 +26,27 @@ const Key = ({ label, action, ariaLabel }) => {
       dispatchAction();
     }
   };
-  const { keyWrapper } = useStyles();
   return (
-    <div
-      role="button"
-      aria-label={ariaLabel || label}
-      className={keyWrapper}
-      onClick={dispatchAction}
-      onKeyDown={handleKeydown}
-      tabIndex={0}
-    >
-      {label}
-    </div>
+    <Grid item>
+      <StyledButton
+        aria-label={ariaLabel || label}
+        onClick={dispatchAction}
+        onKeyDown={handleKeydown}
+      >
+        {label}
+      </StyledButton>
+    </Grid>
   );
 };
 
-Key.propTypes = {
+ActionKey.propTypes = {
   action: string.isRequired,
   ariaLabel: string,
   label: oneOfType([node, string]).isRequired
 };
 
-Key.defaultProps = {
+ActionKey.defaultProps = {
   ariaLabel: undefined
 };
 
-export default Key;
+export default ActionKey;

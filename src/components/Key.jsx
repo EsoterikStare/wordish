@@ -1,27 +1,18 @@
 import React from 'react';
 import { shape, string } from 'prop-types';
-import { createUseStyles } from 'react-jss';
+import { Button, Grid, styled } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
-import { colorMap } from '../constants';
 
-const useStyles = createUseStyles({
-  keyWrapper: ({ state }) => ({
-    alignItems: 'center',
-    backgroundColor: colorMap[state] || '#555',
-    borderRadius: 4,
-    color: 'white',
-    display: 'flex',
-    fontSize: 20,
-    fontFamily: 'sans-serif',
-    height: 50,
-    justifyContent: 'center',
-    margin: 3,
-    width: 35,
-    cursor: 'pointer',
-    userSelect: 'none'
-  })
-});
+const StyledButton = styled(Button)(({ status, theme }) => ({
+  backgroundColor: theme.palette.letterStatus[status] || '#555',
+  color: 'white',
+  fontSize: 20,
+  height: 50,
+  width: 35,
+  minWidth: 35,
+  userSelect: 'none'
+}));
 
 const Key = ({ label, guessedLetters }) => {
   const { dispatch } = useAppState();
@@ -32,22 +23,19 @@ const Key = ({ label, guessedLetters }) => {
       dispatchAddAction();
     }
   };
-  const keyState = guessedLetters[label.toLowerCase()];
-  console.log('Key', { label, keyState });
-  const { keyWrapper } = useStyles({
-    state: keyState
-  });
+  const keyStatus = guessedLetters[label.toLowerCase()];
   return (
-    <div
-      aria-label={label}
-      role="button"
-      className={keyWrapper}
-      onClick={dispatchAddAction}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-    >
-      {label.toUpperCase()}
-    </div>
+    <Grid item>
+      <StyledButton
+        aria-label={label}
+        role="button"
+        onClick={dispatchAddAction}
+        onKeyDown={handleKeyDown}
+        status={keyStatus}
+      >
+        {label.toUpperCase()}
+      </StyledButton>
+    </Grid>
   );
 };
 

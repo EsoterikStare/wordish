@@ -1,23 +1,10 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
+import { Grid } from '@mui/material';
 import { Delete } from 'react-feather';
 
 import Key from './Key';
 import ActionKey from './ActionKey';
 import { useAppState } from '../AppStateContext';
-
-const useStyles = createUseStyles({
-  keyboardWrapper: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 24,
-    maxWidth: 800
-  },
-  keyboardRow: {
-    display: 'flex'
-  }
-});
 
 const topRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
 const middleRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -25,7 +12,6 @@ const bottomRow = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
 const Keyboard = () => {
   const { state } = useAppState();
-  const { keyboardWrapper, keyboardRow } = useStyles();
 
   const guessTypePriority = {
     located: 2,
@@ -66,15 +52,15 @@ const Keyboard = () => {
   );
 
   return (
-    <div className={keyboardWrapper}>
-      <div className={keyboardRow}>{topRow.map(keyMap)}</div>
-      <div className={keyboardRow}>{middleRow.map(keyMap)}</div>
-      <div className={keyboardRow}>
+    <Grid alignItems="center" container direction="column" spacing={1}>
+      <Grid container item justifyContent="center" spacing={1}>{topRow.map(keyMap)}</Grid>
+      <Grid container item justifyContent="center" spacing={1}>{middleRow.map(keyMap)}</Grid>
+      <Grid container item justifyContent="center" spacing={1}>
         <ActionKey label="Enter" action="submit" />
         {bottomRow.map(keyMap)}
         <ActionKey ariaLabel="delete" label={<Delete />} action="remove" />
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 
