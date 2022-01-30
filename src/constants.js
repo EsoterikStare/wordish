@@ -1,5 +1,7 @@
-export const colorMap = {
-  located: "darkolivegreen",
-  present: "darkgoldenrod",
-  absent: "#252525"
+/* eslint-disable import/prefer-default-export */
+
+export const letterStatus = {
+  LOCATED: 'located',
+  PRESENT: 'present',
+  ABSENT: 'absent'
 };
