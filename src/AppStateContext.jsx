@@ -119,9 +119,9 @@ const userInputReducer = (state, { type, value }) => {
 const AppStateProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(userInputReducer, {
     currentGuess: [],
-    secretWord: selectNewWord(6),
-    maxGuesses: 7,
-    wordLength: 6,
+    secretWord: selectNewWord(5),
+    maxGuesses: 6,
+    wordLength: 5,
     previousGuesses: [],
     gameState: 'playing'
   });
