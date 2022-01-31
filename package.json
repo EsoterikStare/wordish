@@ -13,7 +13,6 @@
     "serve": "npm run build && cross-env PORT=8080 node server.js",
     "serve:dev": "concurrently \"npm run build:watch\" \"nodemon server.js\"",
     "start": "webpack serve --mode development",
-    "start:heroku": "npm i && npm run build",
     "build": "webpack --mode production",
     "build:watch": "webpack --watch --mode development"
   },
