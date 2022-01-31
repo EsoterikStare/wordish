@@ -1,30 +1,11 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import { createUseStyles } from 'react-jss';
 
 import { useAppState } from './AppStateContext';
 import { Header, Word, Keyboard } from './components';
 
-const useStyles = createUseStyles({
-  // TODO: Work on overall layout so it's more responsive and correct
-  appWrapper: {
-    backgroundColor: '#151515',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    minWidth: 415,
-    width: '100%',
-    height: '100%'
-  },
-  wordTilesWrapper: {
-    margin: 24
-  }
-});
-
 const App = () => {
   const { state, dispatch } = useAppState();
-  const { appWrapper, wordTilesWrapper } = useStyles();
   console.log('current state', { state, answer: state.secretWord });
 
   const handleKeyDown = (e) => {
