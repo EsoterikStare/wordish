@@ -10,11 +10,11 @@
   "main": "src/index.js",
   "proxy": "localhost:5000",
   "scripts": {
-    "serve": "npm run build && cross-env PORT=8080 node server.js",
-    "serve:dev": "concurrently \"npm run build:watch\" \"nodemon server.js\"",
-    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "build:watch": "webpack --watch --mode development"
+    "build:watch": "webpack --watch --mode development",
+    "heroku:serve": "cross-env PORT=8080 node server.js",
+    "serve:dev": "concurrently \"npm run build:watch\" \"nodemon server.js\"",
+    "start": "webpack serve --mode development"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
