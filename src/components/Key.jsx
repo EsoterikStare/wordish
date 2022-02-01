@@ -24,27 +24,18 @@ const Key = ({ label, guessedLetters }) => {
         disableFocusRipple
         onClick={dispatchAddAction}
         onKeyDown={handleKeyDown}
-        sx={[
-          (theme) => ({
-            backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
-            color: 'white',
-            fontSize: 20,
-            height: 50,
-            width: 35,
-            minWidth: 35,
-            userSelect: 'none'
-          }),
-          (theme) => ({
-            '&:hover': {
-              backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
-            }
-          }),
-          (theme) => ({
-            '&:active, &:focus, .Mui-focusVisible': {
-              backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
-            }
-          })
-        ]}
+        sx={(theme) => ({
+          backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
+          color: 'white',
+          fontSize: 20,
+          height: 50,
+          width: 35,
+          minWidth: 35,
+          userSelect: 'none',
+          '&:hover': {
+            backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
+          }
+        })}
       >
         {label.toUpperCase()}
       </Button>

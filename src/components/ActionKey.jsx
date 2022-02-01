@@ -22,23 +22,19 @@ const ActionKey = ({ label, action, ariaLabel }) => {
         disableFocusRipple
         onClick={dispatchAction}
         onKeyDown={handleKeydown}
-        sx={[
-          (theme) => ({
-            backgroundColor: '#555',
-            color: 'white',
-            fontSize: 12,
-            padding: theme.spacing(2),
-            height: 50,
-            width: 55,
-            minWidth: 55,
-            userSelect: 'none'
-          }),
-          {
-            '&:hover, &:active': {
-              backgroundColor: darken('#555', 0.3)
-            }
+        sx={(theme) => ({
+          backgroundColor: '#555',
+          color: 'white',
+          fontSize: 12,
+          padding: theme.spacing(2),
+          height: 50,
+          width: 55,
+          minWidth: 55,
+          userSelect: 'none',
+          '&:hover': {
+            backgroundColor: '#555'
           }
-        ]}
+        })}
       >
         {label}
       </Button>
