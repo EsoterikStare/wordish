@@ -42,7 +42,7 @@ const Header = ({ title }) => {
         </Grid>
       </Grid>
       <Grid item xs="auto">
-        <Typography component="h1" sx={{ fontSize: '2.5rem', fontWeight: 'bold' }}>
+        <Typography component="h1" sx={{ color: 'white', fontSize: '2.5rem', fontWeight: 'bold' }}>
           {title}
         </Typography>
       </Grid>
