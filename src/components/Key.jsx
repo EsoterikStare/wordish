@@ -4,16 +4,6 @@ import { Button, Grid, styled } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
 
-const StyledButton = styled(Button)(({ status, theme }) => ({
-  backgroundColor: theme.palette.letterStatus[status] || '#555',
-  color: 'white',
-  fontSize: 20,
-  height: 50,
-  width: 35,
-  minWidth: 35,
-  userSelect: 'none'
-}));
-
 const Key = ({ label, guessedLetters }) => {
   const { dispatch } = useAppState();
   const dispatchAddAction = () => dispatch({ type: 'add', value: label });
@@ -26,15 +16,23 @@ const Key = ({ label, guessedLetters }) => {
   const keyStatus = guessedLetters[label.toLowerCase()];
   return (
     <Grid id="key-grid" item justifyContent="center">
-      <StyledButton
+      <Button
         aria-label={label}
         role="button"
         onClick={dispatchAddAction}
         onKeyDown={handleKeyDown}
-        status={keyStatus}
+        sx={(theme) => ({
+          backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
+          color: 'white',
+          fontSize: 20,
+          height: 50,
+          width: 35,
+          minWidth: 35,
+          userSelect: 'none'
+        })}
       >
         {label.toUpperCase()}
-      </StyledButton>
+      </Button>
     </Grid>
   );
 };
