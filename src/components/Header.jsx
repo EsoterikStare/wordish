@@ -17,6 +17,9 @@ const HeaderButton = styled(Button)(() => ({
   minWidth: 40,
   padding: 4,
   userSelect: 'none',
+  '&:hover': {
+    backgroundColor: '#333',
+  }
 }));
 
 const Header = ({ title }) => {
