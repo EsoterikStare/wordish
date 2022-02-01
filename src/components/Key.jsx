@@ -1,6 +1,6 @@
 import React from 'react';
 import { shape, string } from 'prop-types';
-import { Button, Grid, styled } from '@mui/material';
+import { Button, darken, Grid } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
 
@@ -13,7 +13,9 @@ const Key = ({ label, guessedLetters }) => {
       dispatchAddAction();
     }
   };
+
   const keyStatus = guessedLetters[label.toLowerCase()];
+
   return (
     <Grid id="key-grid" item justifyContent="center">
       <Button
@@ -21,15 +23,22 @@ const Key = ({ label, guessedLetters }) => {
         role="button"
         onClick={dispatchAddAction}
         onKeyDown={handleKeyDown}
-        sx={(theme) => ({
-          backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
-          color: 'white',
-          fontSize: 20,
-          height: 50,
-          width: 35,
-          minWidth: 35,
-          userSelect: 'none'
-        })}
+        sx={[
+          (theme) => ({
+            backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
+            color: 'white',
+            fontSize: 20,
+            height: 50,
+            width: 35,
+            minWidth: 35,
+            userSelect: 'none'
+          }),
+          (theme) => ({
+            '&:hover, &:active': {
+              backgroundColor: darken(theme.palette.letterStatus[keyStatus] || '#555', 0.3)
+            }
+          })
+        ]}
       >
         {label.toUpperCase()}
       </Button>
