@@ -36,7 +36,7 @@ const Key = ({ label, guessedLetters }) => {
           }),
           (theme) => ({
             '&:hover, &:active': {
-              backgroundColor: darken(theme.palette.letterStatus[keyStatus] || '#555', 0.3)
+              backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
             }
           })
         ]}
