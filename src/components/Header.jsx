@@ -29,7 +29,7 @@ const Header = ({ title }) => {
     }
   };
   return (
-    <Grid id="header-grid" alignItems="center" container justifyContent="space-around" spacing={4}>
+    <Grid id="header-grid" alignItems="center" container justifyContent="space-around" item spacing={4}>
       <Grid id="header-left-side-group-grid" container item justifyContent="end" xs>
         <Grid id="reset-button-grid" item>
           <HeaderButton
