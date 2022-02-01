@@ -9,7 +9,7 @@ const App = () => {
   console.log('current state', { state, answer: state.secretWord });
 
   const handleKeyDown = (e) => {
-    const alpha = /[a-zA-z]/;
+    const alpha = /[a-zA-Z]/;
     if (e.key.length === 1 && alpha.test(e.key)) {
       dispatch({ type: 'add', value: e.key });
     }
