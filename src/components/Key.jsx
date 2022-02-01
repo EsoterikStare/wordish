@@ -35,7 +35,10 @@ const Key = ({ label, guessedLetters }) => {
             userSelect: 'none'
           }),
           (theme) => ({
-            '&:hover, &:active': {
+            '&:hover': {
+              backgroundColor: darken(theme.palette.letterStatus[keyStatus] || '#555', 0.3)
+            },
+            '&:active, .Mui-focusVisible': {
               backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
             }
           })
