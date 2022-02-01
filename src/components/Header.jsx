@@ -29,40 +29,36 @@ const Header = ({ title }) => {
     }
   };
   return (
-    <Grid id="header-grid" alignItems="center" container justifyContent="space-around" item spacing={4}>
-      <Grid id="header-left-side-group-grid" container item justifyContent="end" xs>
-        <Grid id="reset-button-grid" item>
-          <HeaderButton
-            aria-label="reset"
-            onClick={dispatchResetAction}
-            onKeyDown={handleResetKeyDown}
-          >
-            <RefreshCcw />
-          </HeaderButton>
-        </Grid>
+    <Grid id="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
+      <Grid id="reset-button-grid" item>
+        <HeaderButton
+          aria-label="reset"
+          onClick={dispatchResetAction}
+          onKeyDown={handleResetKeyDown}
+        >
+          <RefreshCcw />
+        </HeaderButton>
       </Grid>
       <Grid item xs="auto">
         <Typography component="h1" sx={{ color: 'white', fontSize: '2.5rem', fontWeight: 'bold' }}>
           {title}
         </Typography>
       </Grid>
-      <Grid id="header-right-side-group-grid" container item justifyContent="start" xs>
-        <Grid id="settings-button-grid" item>
-          <HeaderButton
-            aria-label="settings"
+      <Grid id="settings-button-grid" item>
+        <HeaderButton
+          aria-label="settings"
             // eslint-disable-next-line no-alert
-            onClick={() => alert('Settings coming soon...')}
-            onKeyDown={(e) => {
-              const actionKeys = [' ', 'Enter'];
-              if (actionKeys.includes(e.key)) {
-                // eslint-disable-next-line no-alert
-                alert('Settings coming soon...');
-              }
-            }}
-          >
-            <Settings />
-          </HeaderButton>
-        </Grid>
+          onClick={() => alert('Settings coming soon...')}
+          onKeyDown={(e) => {
+            const actionKeys = [' ', 'Enter'];
+            if (actionKeys.includes(e.key)) {
+              // eslint-disable-next-line no-alert
+              alert('Settings coming soon...');
+            }
+          }}
+        >
+          <Settings />
+        </HeaderButton>
       </Grid>
     </Grid>
   );
