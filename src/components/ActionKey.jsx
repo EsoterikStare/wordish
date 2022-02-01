@@ -1,19 +1,8 @@
 import React from 'react';
 import { oneOfType, node, string } from 'prop-types';
-import { Button, Grid, styled } from '@mui/material';
+import { Button, darken, Grid } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
-
-const StyledButton = styled(Button)(({ theme }) => ({
-  backgroundColor: '#555',
-  color: 'white',
-  fontSize: 12,
-  padding: theme.spacing(2),
-  height: 50,
-  width: 55,
-  minWidth: 55,
-  userSelect: 'none'
-}));
 
 const ActionKey = ({ label, action, ariaLabel }) => {
   const { dispatch } = useAppState();
@@ -28,13 +17,31 @@ const ActionKey = ({ label, action, ariaLabel }) => {
   };
   return (
     <Grid id="action-key-grid-item" item>
-      <StyledButton
+      <Button
         aria-label={ariaLabel || label}
+        disableFocusRipple
         onClick={dispatchAction}
         onKeyDown={handleKeydown}
+        sx={[
+          (theme) => ({
+            backgroundColor: '#555',
+            color: 'white',
+            fontSize: 12,
+            padding: theme.spacing(2),
+            height: 50,
+            width: 55,
+            minWidth: 55,
+            userSelect: 'none'
+          }),
+          {
+            '&:hover, &:active': {
+              backgroundColor: darken('#555', 0.3)
+            }
+          }
+        ]}
       >
         {label}
-      </StyledButton>
+      </Button>
     </Grid>
   );
 };

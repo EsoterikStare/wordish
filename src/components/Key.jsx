@@ -21,6 +21,7 @@ const Key = ({ label, guessedLetters }) => {
       <Button
         aria-label={label}
         role="button"
+        disableFocusRipple
         onClick={dispatchAddAction}
         onKeyDown={handleKeyDown}
         sx={[
