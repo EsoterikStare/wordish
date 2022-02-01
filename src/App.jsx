@@ -52,7 +52,7 @@ const App = () => {
   }, []);
 
   return (
-    <Grid alignItems="center" container flexDirection="column" justifyContent="space-around" sx={{ height: '100vh' }}>
+    <Grid alignItems="center" container flexDirection="column" justifyContent="space-around" sx={{ backgroundColor: '#151515', height: '100vh' }}>
       <Header title="WORDISH" />
       <Grid id="words-grid" alignItems="center" container item justifyContent="center" spacing={1}>
         {getWords().map((word, index) => (
