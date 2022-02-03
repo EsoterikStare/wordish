@@ -6,7 +6,9 @@ import {
   Typography,
   styled
 } from '@mui/material';
-import { RefreshCcw, Settings } from 'react-feather';
+import { RefreshCcw, Settings, Share2 } from 'react-feather';
+
+import GameOverDialog from './GameOverDialog';
 
 import { useAppState } from '../AppStateContext';
 
@@ -23,47 +25,75 @@ const HeaderButton = styled(Button)(() => ({
 }));
 
 const Header = ({ title }) => {
-  const { dispatch } = useAppState();
+  const { state, dispatch } = useAppState();
   const dispatchResetAction = () => dispatch({ type: 'reset' });
+  const actionKeys = [' ', 'Enter'];
   const handleResetKeyDown = (e) => {
-    const actionKeys = [' ', 'Enter'];
     if (actionKeys.includes(e.key)) {
       dispatchResetAction();
     }
   };
+
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (state.gameState !== 'playing') {
+      setDialogOpen(true);
+    }
+  }, [state.gameState]);
+
   return (
-    <Grid id="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
-      <Grid id="reset-button-grid" item>
-        <HeaderButton
-          aria-label="reset"
-          onClick={dispatchResetAction}
-          onKeyDown={handleResetKeyDown}
-        >
-          <RefreshCcw />
-        </HeaderButton>
-      </Grid>
-      <Grid item xs="auto">
-        <Typography component="h1" sx={{ color: 'white', fontSize: '2.5rem', fontWeight: 'bold' }}>
-          {title}
-        </Typography>
-      </Grid>
-      <Grid id="settings-button-grid" item>
-        <HeaderButton
-          aria-label="settings"
-            // eslint-disable-next-line no-alert
-          onClick={() => alert('Settings coming soon...')}
-          onKeyDown={(e) => {
-            const actionKeys = [' ', 'Enter'];
-            if (actionKeys.includes(e.key)) {
+    <>
+      <Grid id="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
+        <Grid container item justifyContent="end" spacing={4} xs>
+          <Grid id="reset-button-grid" item>
+            <HeaderButton
+              aria-label="reset"
+              onClick={dispatchResetAction}
+              onKeyDown={handleResetKeyDown}
+            >
+              <RefreshCcw />
+            </HeaderButton>
+          </Grid>
+        </Grid>
+        <Grid item xs="auto">
+          <Typography component="h1" sx={{ color: 'white', fontSize: '2.5rem', fontWeight: 'bold' }}>
+            {title}
+          </Typography>
+        </Grid>
+        <Grid container item justifyContent="start" spacing={4} xs>
+          <Grid id="stats-dialog-grid" item>
+            <HeaderButton
+              aria-label="Stats and Share"
+              onClick={() => setDialogOpen(true)}
+              onKeyDown={(e) => {
+                if (actionKeys.includes(e.key)) {
+                  setDialogOpen(true);
+                }
+              }}
+            >
+              <Share2 />
+            </HeaderButton>
+          </Grid>
+          <Grid id="settings-button-grid" item>
+            <HeaderButton
+              aria-label="settings"
               // eslint-disable-next-line no-alert
-              alert('Settings coming soon...');
-            }
-          }}
-        >
-          <Settings />
-        </HeaderButton>
+              onClick={() => alert('Settings coming soon...')}
+              onKeyDown={(e) => {
+                if (actionKeys.includes(e.key)) {
+                // eslint-disable-next-line no-alert
+                  alert('Settings coming soon...');
+                }
+              }}
+            >
+              <Settings />
+            </HeaderButton>
+          </Grid>
+        </Grid>
       </Grid>
-    </Grid>
+      <GameOverDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
+    </>
   );
 };
 
