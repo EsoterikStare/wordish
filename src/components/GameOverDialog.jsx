@@ -8,7 +8,8 @@ import {
   DialogContentText,
   DialogTitle
 } from '@mui/material';
-import { Share2 } from 'react-feather';
+
+import ShareButton from './ShareButton';
 
 import { useAppState } from '../AppStateContext';
 
@@ -43,14 +44,7 @@ const GameOverDialog = ({ open, onClose }) => {
       </DialogContent>
       <DialogActions>
         {state.gameState === 'win' && (
-        <Button
-          color="success"
-          endIcon={<Share2 />}
-          onClick={() => alert("Sharing isn't hooked up yet... =(")}
-          variant="contained"
-        >
-          Share
-        </Button>
+          <ShareButton />
         )}
         <Button color="primary" onClick={handleResetButtonClick} variant="contained">Another!</Button>
       </DialogActions>

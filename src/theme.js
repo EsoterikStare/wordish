@@ -6,6 +6,16 @@ import { letterStatus } from './constants';
 const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
 export default createTheme({
+  components: {
+    MuiSnackbarContent: {
+      styleOverrides: {
+        root: {
+          display: 'flex',
+          justifyContent: 'center'
+        }
+      }
+    }
+  },
   palette: {
     letterStatus: {
       [ABSENT]: '#252525',
