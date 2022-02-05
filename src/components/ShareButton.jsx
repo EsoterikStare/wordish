@@ -23,7 +23,6 @@ const ShareButton = () => {
   const copyResult = (result) => setSnackbarOpen(result);
 
   const handleClick = () => {
-    console.log('ShareButton click', { shareContent });
     copyToClipboard(shareContent, copyResult);
   };
 
@@ -39,7 +38,7 @@ const ShareButton = () => {
       </Button>
       <Snackbar
         anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
-        autoHideDuration={3000}
+        autoHideDuration={2500}
         message="Copied results to clipboard"
         onClose={() => setSnackbarOpen(false)}
         open={snackbarOpen}
