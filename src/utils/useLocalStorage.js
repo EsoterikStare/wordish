@@ -26,7 +26,7 @@ function storageAvailable(type) {
   }
 }
 
-const useLocalStorage = (storageName, { parse = (value) => value }) => {
+const useLocalStorage = (storageName, { parse = (value) => value } = {}) => {
   if (!storageAvailable('localStorage')) return [undefined, () => {}];
 
   return [
