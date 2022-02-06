@@ -4,7 +4,11 @@ import { Delete } from 'react-feather';
 
 import Key from './Key';
 import ActionKey from './ActionKey';
+
+import { letterStatus } from '../constants';
 import { useAppState } from '../AppStateContext';
+
+const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
 const topRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
 const middleRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -14,9 +18,9 @@ const Keyboard = () => {
   const { state } = useAppState();
 
   const guessTypePriority = {
-    located: 2,
-    present: 1,
-    absent: 0
+    [LOCATED]: 2,
+    [PRESENT]: 1,
+    [ABSENT]: 0
   };
 
   /**

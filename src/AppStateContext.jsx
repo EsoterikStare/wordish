@@ -1,7 +1,10 @@
 import React from 'react';
 import { node } from 'prop-types';
 
+import { letterStatus } from './constants';
 import { selectNewWord } from './words';
+
+const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
 const AppStateContext = React.createContext();
 
@@ -12,9 +15,9 @@ const processGuess = (guess, answer) => {
     const charPresent = answerArray.includes(guessChar.toLowerCase());
     const getGuessType = () => {
       // TODO: Make these guess types a constant and reference them everywhere.
-      if (correctPosition) return 'located';
-      if (charPresent) return 'present';
-      return 'absent';
+      if (correctPosition) return LOCATED;
+      if (charPresent) return PRESENT;
+      return ABSENT;
     };
     acc.push({ guessChar, type: getGuessType() });
     return acc;
