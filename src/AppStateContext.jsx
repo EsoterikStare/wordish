@@ -118,6 +118,12 @@ const userInputReducer = (state, { type, value }) => {
         secretWord: selectNewWord(value)
       };
     }
+    case 'updateColorblindMode': {
+      return {
+        ...state,
+        colorblindMode: value
+      };
+    }
     default: {
       throw new Error(`Unhandled action type: ${type}`);
     }
@@ -129,9 +135,11 @@ const userInputReducer = (state, { type, value }) => {
  */
 const AppStateProvider = ({ children }) => {
   const [userWordLength, setUserWordLength] = useLocalStorage('wordLength', { parse: parseInt });
+  const [userColorblindMode, setUserColorblindMode] = useLocalStorage('colorblindMode');
   console.log('AppStateProvider', { userWordLength });
 
   const [state, dispatch] = React.useReducer(userInputReducer, {
+    colorblindMode: userColorblindMode || false,
     currentGuess: [],
     secretWord: selectNewWord(5),
     maxGuesses: (userWordLength && userWordLength + 1) || 6,
@@ -141,10 +149,16 @@ const AppStateProvider = ({ children }) => {
   });
 
   React.useEffect(() => {
-    // Observer to keep localStorage in sync with state when it updates
+    // Observer to keep localStorage in sync
     const { wordLength } = state;
     setUserWordLength(wordLength);
   }, [state.wordLength]);
+
+  React.useEffect(() => {
+    // Observer to keep localStorage in sync
+    const { colorblindMode } = state;
+    setUserColorblindMode(colorblindMode);
+  }, [state.colorblindMode]);
 
   const value = React.useMemo(() => ({
     state,
