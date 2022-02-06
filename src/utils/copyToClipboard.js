@@ -26,7 +26,6 @@ const copyToClipboard = (content, callback) => {
 
   if (iOS()) {
     iOSShare({ text: content });
-    callback(result);
     return;
   }
 
