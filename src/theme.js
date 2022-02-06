@@ -1,5 +1,5 @@
 import { createTheme, darken } from '@mui/material';
-import { amber, lightGreen } from '@mui/material/colors';
+import { amber } from '@mui/material/colors';
 
 import { letterStatus } from './constants';
 
