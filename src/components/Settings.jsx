@@ -36,7 +36,8 @@ const WordLengthItem = () => {
 
 const ColorModeItem = () => {
   const { state, dispatch } = useAppState();
-  const { colorBlindMode } = state;
+  const { colorblindMode } = state;
+
   return (
     <Grid alignItems="center" container justifyContent="space-between" spacing={8}>
       <Grid item>
@@ -44,7 +45,8 @@ const ColorModeItem = () => {
       </Grid>
       <Grid item>
         <Switch
-          value={colorBlindMode}
+          aria-label="colorblind mode"
+          checked={colorblindMode}
           onChange={(e, newValue) => dispatch({ type: 'updateColorblindMode', value: newValue })}
         />
       </Grid>
