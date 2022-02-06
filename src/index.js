@@ -1,19 +1,17 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@mui/material';
 
 import App from './App';
 import { AppStateProvider } from './AppStateContext';
-
-import theme from './theme';
+import AppThemeProvider from './AppThemeProvider';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <StrictMode>
     <AppStateProvider>
-      <ThemeProvider theme={theme}>
+      <AppThemeProvider>
         <App />
-      </ThemeProvider>
+      </AppThemeProvider>
     </AppStateProvider>
   </StrictMode>,
   rootElement
