@@ -21,7 +21,8 @@ export default createTheme({
       [ABSENT]: '#252525',
       [LOCATED]: 'rgb(76, 103, 37)',
       [PRESENT]: darken(amber.A700, 0.3)
-    }
+    },
+    mode: 'dark'
   },
   spacing: 4
 });
