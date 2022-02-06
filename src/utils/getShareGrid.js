@@ -3,11 +3,11 @@ import { letterStatus } from '../constants';
 const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
 const getShareGrid = (state) => {
-  const { previousGuesses } = state;
+  const { colorblindMode, previousGuesses } = state;
   const squares = {
     [ABSENT]: '⬛',
-    [LOCATED]: '🟩',
-    [PRESENT]: '🟨'
+    [LOCATED]: colorblindMode ? '🟦' : '🟩',
+    [PRESENT]: colorblindMode ? '🟧' : '🟨'
   };
 
   /**
