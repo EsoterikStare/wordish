@@ -1,7 +1,7 @@
 import React from 'react';
-import { object, func, number } from 'prop-types';
+import { func, shape } from 'prop-types';
 import {
-  Grid, Menu, MenuItem, ToggleButton, ToggleButtonGroup, Typography
+  Box, Grid, Menu, MenuItem, Switch, ToggleButton, ToggleButtonGroup, Typography
 } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
@@ -12,58 +12,79 @@ const WordLengthItem = () => {
   const { wordLength } = state;
   console.log('wordLength', { wordsKeys: Object.keys(words) });
   return (
-    <MenuItem>
-      <Grid alignItems="center" container justifyContent="space-around" spacing={8}>
-        <Grid item>
-          <Typography>Word Length:</Typography>
-        </Grid>
-        <Grid item>
-          <ToggleButtonGroup
-            aria-label="word length"
-            value={wordLength}
-            onChange={(e, newValue) => dispatch({ type: 'updateWordLength', value: newValue })}
-            exclusive
-          >
-            {Object.keys(words).map((length, index) => (
-              <ToggleButton key={index.toString()} value={parseInt(length, 10)} aria-label={length}>
-                {length}
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
-        </Grid>
+    <Grid alignItems="center" container justifyContent="space-between" spacing={8}>
+      <Grid item>
+        <Typography>Word Length:</Typography>
       </Grid>
-    </MenuItem>
+      <Grid item>
+        <ToggleButtonGroup
+          aria-label="word length"
+          value={wordLength}
+          onChange={(e, newValue) => dispatch({ type: 'updateWordLength', value: newValue })}
+          exclusive
+        >
+          {Object.keys(words).map((length, index) => (
+            <ToggleButton key={index.toString()} value={parseInt(length, 10)} aria-label={length}>
+              {length}
+            </ToggleButton>
+          ))}
+        </ToggleButtonGroup>
+      </Grid>
+    </Grid>
+  );
+};
+
+const ColorModeItem = () => {
+  const { state, dispatch } = useAppState();
+  const { colorBlindMode } = state;
+  return (
+    <Grid alignItems="center" container justifyContent="space-between" spacing={8}>
+      <Grid item>
+        <Typography>Colorblind Mode:</Typography>
+      </Grid>
+      <Grid item>
+        <Switch
+          value={colorBlindMode}
+          onChange={(e, newValue) => dispatch({ type: 'updateColorblindMode', value: newValue })}
+        />
+      </Grid>
+    </Grid>
   );
 };
 
 WordLengthItem.propTypes = {};
 WordLengthItem.defaultProps = {};
 
-const Settings = ({ anchorEl, onClose }) => {
-  const { state } = useAppState();
-  const { wordLength } = state;
-
-  return (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right'
-      }}
-      onClose={onClose}
-      open={Boolean(anchorEl)}
-      transformOrigin={{
-        horizontal: 'right',
-        vertical: 'top'
-      }}
-    >
-      <WordLengthItem wordLength={wordLength} />
-    </Menu>
-  );
-};
+const Settings = ({ anchorEl, onClose }) => (
+  <Menu
+    anchorEl={anchorEl}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'right'
+    }}
+    onClose={onClose}
+    open={Boolean(anchorEl)}
+    transformOrigin={{
+      horizontal: 'right',
+      vertical: 'top'
+    }}
+    sx={{ border: '4px solid transparent' }}
+  >
+    <Box p={4}>
+      <Grid container direction="column" spacing={4}>
+        <Grid item>
+          <WordLengthItem />
+        </Grid>
+        <Grid item>
+          <ColorModeItem />
+        </Grid>
+      </Grid>
+    </Box>
+  </Menu>
+);
 
 Settings.propTypes = {
-  anchorEl: object,
+  anchorEl: shape({}),
   onClose: func.isRequired
 };
 Settings.defaultProps = {
