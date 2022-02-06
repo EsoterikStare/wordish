@@ -3,6 +3,7 @@ import { node } from 'prop-types';
 
 import { letterStatus } from './constants';
 import { selectNewWord } from './words';
+import { useLocalStorage } from './utils';
 
 const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
@@ -109,6 +110,14 @@ const userInputReducer = (state, { type, value }) => {
         secretWord: selectNewWord(state.wordLength)
       };
     }
+    case 'updateWordLength': {
+      return {
+        ...state,
+        wordLength: value,
+        maxGuesses: value + 1,
+        secretWord: selectNewWord(value)
+      };
+    }
     default: {
       throw new Error(`Unhandled action type: ${type}`);
     }
@@ -119,14 +128,23 @@ const userInputReducer = (state, { type, value }) => {
  * TODO: Hook up options menu for things like letter count, color mode, and possibly max guesses.
  */
 const AppStateProvider = ({ children }) => {
+  const [userWordLength, setUserWordLength] = useLocalStorage('wordLength', { parse: parseInt });
+  console.log('AppStateProvider', { userWordLength });
+
   const [state, dispatch] = React.useReducer(userInputReducer, {
     currentGuess: [],
     secretWord: selectNewWord(5),
-    maxGuesses: 6,
-    wordLength: 5,
+    maxGuesses: (userWordLength && userWordLength + 1) || 6,
+    wordLength: userWordLength || 5,
     previousGuesses: [],
     gameState: 'playing'
   });
+
+  React.useEffect(() => {
+    // Observer to keep localStorage in sync with state when it updates
+    const { wordLength } = state;
+    setUserWordLength(wordLength);
+  }, [state.wordLength]);
 
   const value = React.useMemo(() => ({
     state,

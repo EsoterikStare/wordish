@@ -6,9 +6,10 @@ import {
   Typography,
   styled
 } from '@mui/material';
-import { RefreshCcw, Settings, Share2 } from 'react-feather';
+import { RefreshCcw, Settings as SettingsIcon, Share2 } from 'react-feather';
 
 import GameOverDialog from './GameOverDialog';
+import Settings from './Settings';
 
 import { useAppState } from '../AppStateContext';
 
@@ -35,6 +36,11 @@ const Header = ({ title }) => {
   };
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [settingsAnchor, setSettingsAnchor] = React.useState();
+  const onSettingsClick = (e) => {
+    setSettingsAnchor(e.target);
+  };
+  const onSettingsClose = () => setSettingsAnchor(undefined);
 
   React.useEffect(() => {
     if (state.gameState !== 'playing') {
@@ -78,17 +84,16 @@ const Header = ({ title }) => {
           <Grid id="settings-button-grid" item>
             <HeaderButton
               aria-label="settings"
-              // eslint-disable-next-line no-alert
-              onClick={() => alert('Settings coming soon...')}
+              onClick={onSettingsClick}
               onKeyDown={(e) => {
                 if (actionKeys.includes(e.key)) {
-                // eslint-disable-next-line no-alert
-                  alert('Settings coming soon...');
+                  onSettingsClick(e);
                 }
               }}
             >
-              <Settings />
+              <SettingsIcon style={{ pointerEvents: 'none' }} />
             </HeaderButton>
+            <Settings anchorEl={settingsAnchor} onClose={onSettingsClose} />
           </Grid>
         </Grid>
       </Grid>
