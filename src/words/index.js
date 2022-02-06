@@ -1,3 +1,3 @@
-import { selectNewWord } from "./words";
+import { selectNewWord, words } from "./words";
 
-export { selectNewWord };
+export { selectNewWord, words };

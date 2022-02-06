@@ -1,7 +1,7 @@
 import fiveLetters from "./fiveLetters";
 import sixLetters from "./sixLetters";
 
-const words = {
+export const words = {
   5: fiveLetters,
   6: sixLetters
 };
