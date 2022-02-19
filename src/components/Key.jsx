@@ -29,8 +29,8 @@ const Key = ({ label, guessedLetters }) => {
           color: 'white',
           fontSize: 20,
           height: 60,
-          width: 40,
-          minWidth: 40,
+          width: 38,
+          minWidth: 38,
           userSelect: 'none',
           '&:hover': {
             backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
