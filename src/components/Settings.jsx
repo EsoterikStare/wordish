@@ -20,7 +20,7 @@ const WordLengthItem = () => {
         <ToggleButtonGroup
           aria-label="word length"
           value={wordLength}
-          onChange={(e, newValue) => dispatch({ type: 'updateWordLength', value: newValue })}
+          onChange={(e, newValue) => dispatch({ type: 'updateWordLength', value: newValue || wordLength })}
           exclusive
         >
           {Object.keys(words).map((length, index) => (
