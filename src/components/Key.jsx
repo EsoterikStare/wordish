@@ -21,7 +21,6 @@ const Key = ({ label, guessedLetters }) => {
       <Button
         aria-label={label}
         role="button"
-        disableRipple
         disableFocusRipple
         onClick={dispatchAddAction}
         onKeyDown={handleKeyDown}
@@ -29,9 +28,9 @@ const Key = ({ label, guessedLetters }) => {
           backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
           color: 'white',
           fontSize: 20,
-          height: 50,
-          width: 35,
-          minWidth: 35,
+          height: 60,
+          width: 40,
+          minWidth: 40,
           userSelect: 'none',
           '&:hover': {
             backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'

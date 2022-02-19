@@ -27,9 +27,9 @@ const ActionKey = ({ label, action, ariaLabel }) => {
           color: 'white',
           fontSize: 12,
           padding: theme.spacing(2),
-          height: 50,
-          width: 55,
-          minWidth: 55,
+          height: 60,
+          width: 60,
+          minWidth: 60,
           userSelect: 'none',
           '&:hover': {
             backgroundColor: '#555'
