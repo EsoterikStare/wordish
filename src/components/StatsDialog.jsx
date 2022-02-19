@@ -46,7 +46,7 @@ const GameOverDialog = ({ open, onClose }) => {
         {state.gameState === 'win' && (
           <ShareButton />
         )}
-        <Button color="primary" onClick={handleResetButtonClick} variant="contained">Another!</Button>
+        <Button color={state.gameState === 'playing' ? 'error' : 'primary'} onClick={handleResetButtonClick} variant="contained">{state.gameState === 'playing' ? 'New word' : 'Another!'}</Button>
       </DialogActions>
     </Dialog>
   );

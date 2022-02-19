@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { RefreshCcw, Settings as SettingsIcon, Share2 } from 'react-feather';
 
-import GameOverDialog from './GameOverDialog';
+import StatsDialog from './StatsDialog';
 import Settings from './Settings';
 
 import { useAppState } from '../AppStateContext';
@@ -105,7 +105,7 @@ const Header = ({ title }) => {
           </Grid>
         </Grid>
       </Grid>
-      <GameOverDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
+      <StatsDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
     </>
   );
 };
