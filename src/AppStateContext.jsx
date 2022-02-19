@@ -110,6 +110,10 @@ const userInputReducer = (state, { type, value }) => {
       };
     }
     case 'updateWordLength': {
+      if (state.wordLength === value) {
+        return { ...state };
+      }
+
       return {
         ...state,
         currentGuess: [],
