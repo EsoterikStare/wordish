@@ -18,6 +18,8 @@ const ShareButton = () => {
     `${wordLength}-letter word`,
     '',
     shareGrid,
+    '',
+    'wordle-ish.herokuapp.com'
   ].join('\r\n');
 
   const copyResult = (result) => setSnackbarOpen(result);
