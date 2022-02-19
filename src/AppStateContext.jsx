@@ -15,7 +15,6 @@ const processGuess = (guess, answer) => {
     const correctPosition = guessChar.toLowerCase() === answerArray[index];
     const charPresent = answerArray.includes(guessChar.toLowerCase());
     const getGuessType = () => {
-      // TODO: Make these guess types a constant and reference them everywhere.
       if (correctPosition) return LOCATED;
       if (charPresent) return PRESENT;
       return ABSENT;
@@ -48,7 +47,7 @@ const userInputReducer = (state, { type, value }) => {
     }
 
     /**
-     * TODO: Create a dialog for win/lose states with reset option and appropriate results info
+     * TODO: Store and display statistics
      * TODO: Check to make sure guess is actually a word. (Wordle does it with no web request...)
      */
     case 'submit': {
@@ -132,9 +131,6 @@ const userInputReducer = (state, { type, value }) => {
   }
 };
 
-/**
- * TODO: Hook up options menu for things like letter count, color mode, and possibly max guesses.
- */
 const AppStateProvider = ({ children }) => {
   const [userWordLength, setUserWordLength] = useLocalStorage('wordLength', { parse: parseInt });
   const [userColorblindMode, setUserColorblindMode] = useLocalStorage('colorblindMode', { parse: (value) => (value === 'true') });
