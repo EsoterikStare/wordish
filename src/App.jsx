@@ -5,8 +5,7 @@ import { useAppState } from './AppStateContext';
 import { Header, Keyboard, WordGrid } from './components';
 
 const App = () => {
-  const { state, dispatch } = useAppState();
-  console.log('current state', { state, answer: state.secretWord });
+  const { dispatch } = useAppState();
 
   const handleKeyDown = (e) => {
     const alpha = /[a-zA-Z]/;
