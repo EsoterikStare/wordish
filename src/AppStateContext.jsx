@@ -1,28 +1,10 @@
 import React from 'react';
 import { node } from 'prop-types';
 
-import { letterStatus } from './constants';
 import { selectNewWord } from './words';
-import { useLocalStorage } from './utils';
-
-const { ABSENT, LOCATED, PRESENT } = letterStatus;
+import { processGuess, useLocalStorage } from './utils';
 
 const AppStateContext = React.createContext();
-
-const processGuess = (guess, answer) => {
-  const answerArray = answer.toLowerCase().split('');
-  return guess.reduce((acc, { guessChar }, index) => {
-    const correctPosition = guessChar.toLowerCase() === answerArray[index];
-    const charPresent = answerArray.includes(guessChar.toLowerCase());
-    const getGuessType = () => {
-      if (correctPosition) return LOCATED;
-      if (charPresent) return PRESENT;
-      return ABSENT;
-    };
-    acc.push({ guessChar, type: getGuessType() });
-    return acc;
-  }, []);
-};
 
 const userInputReducer = (state, { type, value }) => {
   switch (type) {
