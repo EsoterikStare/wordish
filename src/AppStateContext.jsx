@@ -135,11 +135,12 @@ const AppStateProvider = ({ children }) => {
   const [userWordLength, setUserWordLength] = useLocalStorage('wordLength', { parse: parseInt });
   const [userColorblindMode, setUserColorblindMode] = useLocalStorage('colorblindMode', { parse: (value) => (value === 'true') });
   const [storedPreviousGuesses, setStoredPreviousGuesses] = useLocalStorage('prevGuesses', { parse: JSON.parse });
+  const [storedWord, setStoredWord] = useLocalStorage('secretWord');
 
   const [state, dispatch] = React.useReducer(userInputReducer, {
     colorblindMode: userColorblindMode || false,
     currentGuess: [],
-    secretWord: selectNewWord(userWordLength || 5),
+    secretWord: storedWord || selectNewWord(userWordLength || 5),
     maxGuesses: (userWordLength && userWordLength + 1) || 6,
     wordLength: userWordLength || 5,
     previousGuesses: storedPreviousGuesses || [],
@@ -165,6 +166,12 @@ const AppStateProvider = ({ children }) => {
     const { previousGuesses } = state;
     setStoredPreviousGuesses(JSON.stringify(previousGuesses));
   }, [state.previousGuesses]);
+
+  React.useEffect(() => {
+    // Observer to keep localStorage in sync
+    const { secretWord } = state;
+    setStoredWord(secretWord);
+  }, [state.secretWord]);
 
   const value = React.useMemo(() => ({
     state,
