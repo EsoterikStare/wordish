@@ -64,7 +64,7 @@ const userInputReducer = (state, { type, value }) => {
         if (guess === answer) {
           return {
             ...state,
-            currentGuess: '',
+            currentGuess: [],
             gameState: 'win',
             previousGuesses: [
               ...state.previousGuesses,
@@ -77,7 +77,7 @@ const userInputReducer = (state, { type, value }) => {
         if (state.previousGuesses.length + 1 === state.maxGuesses) {
           return {
             ...state,
-            currentGuess: '',
+            currentGuess: [],
             gameState: 'lose',
             previousGuesses: [
               ...state.previousGuesses,
@@ -89,7 +89,7 @@ const userInputReducer = (state, { type, value }) => {
         // wrong/next guess!
         return {
           ...state,
-          currentGuess: '',
+          currentGuess: [],
           previousGuesses: [
             ...state.previousGuesses,
             processGuess(state.currentGuess, state.secretWord)
@@ -135,11 +135,12 @@ const AppStateProvider = ({ children }) => {
   const [userWordLength, setUserWordLength] = useLocalStorage('wordLength', { parse: parseInt });
   const [userColorblindMode, setUserColorblindMode] = useLocalStorage('colorblindMode', { parse: (value) => (value === 'true') });
   const [storedPreviousGuesses, setStoredPreviousGuesses] = useLocalStorage('prevGuesses', { parse: JSON.parse });
+  const [storedCurrentGuess, setStoredCurrentGuess] = useLocalStorage('currentGuess', { parse: JSON.parse });
   const [storedWord, setStoredWord] = useLocalStorage('secretWord');
 
   const [state, dispatch] = React.useReducer(userInputReducer, {
     colorblindMode: userColorblindMode || false,
-    currentGuess: [],
+    currentGuess: storedCurrentGuess || [],
     secretWord: storedWord || selectNewWord(userWordLength || 5),
     maxGuesses: (userWordLength && userWordLength + 1) || 6,
     wordLength: userWordLength || 5,
@@ -166,6 +167,12 @@ const AppStateProvider = ({ children }) => {
     const { previousGuesses } = state;
     setStoredPreviousGuesses(JSON.stringify(previousGuesses));
   }, [state.previousGuesses]);
+
+  React.useEffect(() => {
+    // Observer to keep localStorage in sync
+    const { currentGuess } = state;
+    setStoredCurrentGuess(JSON.stringify(currentGuess));
+  }, [state.currentGuess]);
 
   React.useEffect(() => {
     // Observer to keep localStorage in sync
