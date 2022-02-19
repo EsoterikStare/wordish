@@ -26,14 +26,8 @@ const HeaderButton = styled(Button)(() => ({
 }));
 
 const Header = ({ title }) => {
-  const { state, dispatch } = useAppState();
-  const dispatchResetAction = () => dispatch({ type: 'reset' });
+  const { state } = useAppState();
   const actionKeys = [' ', 'Enter'];
-  const handleResetKeyDown = (e) => {
-    if (actionKeys.includes(e.key)) {
-      dispatchResetAction();
-    }
-  };
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [settingsAnchor, setSettingsAnchor] = React.useState();
@@ -51,16 +45,18 @@ const Header = ({ title }) => {
   return (
     <>
       <Grid id="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
-        <Grid container item justifyContent="end" spacing={4} xs>
-          <Grid id="reset-button-grid" item>
-            <HeaderButton
-              aria-label="reset"
-              onClick={dispatchResetAction}
-              onKeyDown={handleResetKeyDown}
-            >
-              <RefreshCcw />
-            </HeaderButton>
-          </Grid>
+        <Grid id="stats-dialog-grid" item>
+          <HeaderButton
+            aria-label="Stats and Share"
+            onClick={() => setDialogOpen(true)}
+            onKeyDown={(e) => {
+              if (actionKeys.includes(e.key)) {
+                setDialogOpen(true);
+              }
+            }}
+          >
+            <Share2 />
+          </HeaderButton>
         </Grid>
         <Grid item xs="auto">
           <Typography
@@ -75,34 +71,19 @@ const Header = ({ title }) => {
             {title}
           </Typography>
         </Grid>
-        <Grid container item justifyContent="start" spacing={4} xs>
-          <Grid id="stats-dialog-grid" item>
-            <HeaderButton
-              aria-label="Stats and Share"
-              onClick={() => setDialogOpen(true)}
-              onKeyDown={(e) => {
-                if (actionKeys.includes(e.key)) {
-                  setDialogOpen(true);
-                }
-              }}
-            >
-              <Share2 />
-            </HeaderButton>
-          </Grid>
-          <Grid id="settings-button-grid" item>
-            <HeaderButton
-              aria-label="settings"
-              onClick={onSettingsClick}
-              onKeyDown={(e) => {
-                if (actionKeys.includes(e.key)) {
-                  onSettingsClick(e);
-                }
-              }}
-            >
-              <SettingsIcon style={{ pointerEvents: 'none' }} />
-            </HeaderButton>
-            <Settings anchorEl={settingsAnchor} onClose={onSettingsClose} />
-          </Grid>
+        <Grid id="settings-button-grid" item>
+          <HeaderButton
+            aria-label="settings"
+            onClick={onSettingsClick}
+            onKeyDown={(e) => {
+              if (actionKeys.includes(e.key)) {
+                onSettingsClick(e);
+              }
+            }}
+          >
+            <SettingsIcon style={{ pointerEvents: 'none' }} />
+          </HeaderButton>
+          <Settings anchorEl={settingsAnchor} onClose={onSettingsClose} />
         </Grid>
       </Grid>
       <StatsDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
