@@ -58,7 +58,7 @@ const userInputReducer = (state, { type, value }) => {
           .map(({ guessChar }) => guessChar)
           .join('')
           .toLowerCase();
-        const answer = state.secretWord.toLowerCase();
+        const answer = state.solution.toLowerCase();
 
         // correct/win!
         if (guess === answer) {
@@ -68,7 +68,7 @@ const userInputReducer = (state, { type, value }) => {
             gameState: 'win',
             previousGuesses: [
               ...state.previousGuesses,
-              processGuess(state.currentGuess, state.secretWord)
+              processGuess(state.currentGuess, state.solution)
             ]
           };
         }
@@ -81,7 +81,7 @@ const userInputReducer = (state, { type, value }) => {
             gameState: 'lose',
             previousGuesses: [
               ...state.previousGuesses,
-              processGuess(state.currentGuess, state.secretWord)
+              processGuess(state.currentGuess, state.solution)
             ]
           };
         }
@@ -92,7 +92,7 @@ const userInputReducer = (state, { type, value }) => {
           currentGuess: [],
           previousGuesses: [
             ...state.previousGuesses,
-            processGuess(state.currentGuess, state.secretWord)
+            processGuess(state.currentGuess, state.solution)
           ]
         };
       }
@@ -106,7 +106,7 @@ const userInputReducer = (state, { type, value }) => {
         currentGuess: [],
         gameState: 'playing',
         previousGuesses: [],
-        secretWord: selectNewWord(state.wordLength)
+        solution: selectNewWord(state.wordLength)
       };
     }
     case 'updateWordLength': {
@@ -119,7 +119,7 @@ const userInputReducer = (state, { type, value }) => {
         currentGuess: [],
         maxGuesses: value + 1,
         previousGuesses: [],
-        secretWord: selectNewWord(value),
+        solution: selectNewWord(value),
         wordLength: value
       };
     }
@@ -136,53 +136,32 @@ const userInputReducer = (state, { type, value }) => {
 };
 
 const AppStateProvider = ({ children }) => {
-  const [userWordLength, setUserWordLength] = useLocalStorage('wordLength', { parse: parseInt });
-  const [userColorblindMode, setUserColorblindMode] = useLocalStorage('colorblindMode', { parse: (value) => (value === 'true') });
-  const [storedPreviousGuesses, setStoredPreviousGuesses] = useLocalStorage('prevGuesses', { parse: JSON.parse });
-  const [storedCurrentGuess, setStoredCurrentGuess] = useLocalStorage('currentGuess', { parse: JSON.parse });
-  const [storedWord, setStoredWord] = useLocalStorage('secretWord');
+  const [storedState, setStoredState] = useLocalStorage('appState', { parse: JSON.parse });
+
+  const {
+    colorblindMode: storedColorblindMode,
+    currentGuess: storedCurrentGuess,
+    solution: storedSolution,
+    maxGuesses: storedMaxGuesses,
+    wordLength: storedWordLength,
+    previousGuesses: storedPreviousGuesses,
+    gameState: storedGameState
+  } = storedState || {};
 
   const [state, dispatch] = React.useReducer(userInputReducer, {
-    colorblindMode: userColorblindMode || false,
+    colorblindMode: storedColorblindMode || false,
     currentGuess: storedCurrentGuess || [],
-    secretWord: storedWord || selectNewWord(userWordLength || 5),
-    maxGuesses: (userWordLength && userWordLength + 1) || 6,
-    wordLength: userWordLength || 5,
+    solution: storedSolution || selectNewWord(storedWordLength || 5),
+    maxGuesses: storedMaxGuesses || (storedWordLength && storedWordLength + 1) || 6,
+    wordLength: storedWordLength || 5,
     previousGuesses: storedPreviousGuesses || [],
-    gameState: 'playing'
+    gameState: storedGameState || 'playing'
   });
 
-  console.log('AppStateProvider', { state, userWordLength, userColorblindMode });
-
   React.useEffect(() => {
     // Observer to keep localStorage in sync
-    const { wordLength } = state;
-    setUserWordLength(wordLength);
-  }, [state.wordLength]);
-
-  React.useEffect(() => {
-    // Observer to keep localStorage in sync
-    const { colorblindMode } = state;
-    setUserColorblindMode(colorblindMode);
-  }, [state.colorblindMode]);
-
-  React.useEffect(() => {
-    // Observer to keep localStorage in sync
-    const { previousGuesses } = state;
-    setStoredPreviousGuesses(JSON.stringify(previousGuesses));
-  }, [state.previousGuesses]);
-
-  React.useEffect(() => {
-    // Observer to keep localStorage in sync
-    const { currentGuess } = state;
-    setStoredCurrentGuess(JSON.stringify(currentGuess));
-  }, [state.currentGuess]);
-
-  React.useEffect(() => {
-    // Observer to keep localStorage in sync
-    const { secretWord } = state;
-    setStoredWord(secretWord);
-  }, [state.secretWord]);
+    setStoredState(JSON.stringify(state));
+  }, [state]);
 
   const value = React.useMemo(() => ({
     state,

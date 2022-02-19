@@ -37,7 +37,7 @@ const GameOverDialog = ({ open, onClose }) => {
         {titles[state.gameState]}
       </DialogTitle>
       <DialogContent>
-        {state.gameState === 'lose' && <DialogContentText sx={{ my: 4 }}>{`The word was ${state.secretWord.toUpperCase()}`}</DialogContentText>}
+        {state.gameState === 'lose' && <DialogContentText sx={{ my: 4 }}>{`The word was ${state.solution.toUpperCase()}`}</DialogContentText>}
         <DialogContentText id="game-over-dialog-content-text">
           {dialogContent}
         </DialogContentText>
