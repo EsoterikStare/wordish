@@ -1,15 +1,15 @@
-import fiveLetters from "./fiveLetters";
-import sixLetters from "./sixLetters";
+import fiveLetters from './fiveLetters';
+import sixLetters from './sixLetters';
 
 export const words = {
   5: fiveLetters,
   6: sixLetters
 };
 
-const getOrderOfMagnitudeLimit = (wordLength) =>
-  10 ** words[wordLength].length.toString().length;
-const getRandomIndex = (wordLength) =>
-  Math.floor(Math.random() * getOrderOfMagnitudeLimit(wordLength));
+const getOrderOfMagnitudeLimit = (wordLength) => 10 ** words[wordLength].length.toString().length;
+const getRandomIndex = (wordLength) => (
+  Math.floor(Math.random() * getOrderOfMagnitudeLimit(wordLength))
+);
 
 export const selectNewWord = (wordLength) => {
   const randomIndex = getRandomIndex(wordLength);
