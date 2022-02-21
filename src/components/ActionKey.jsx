@@ -1,6 +1,6 @@
 import React from 'react';
 import { oneOfType, node, string } from 'prop-types';
-import { Button, darken, Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
 

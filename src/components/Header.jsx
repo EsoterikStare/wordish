@@ -6,7 +6,7 @@ import {
   Typography,
   styled
 } from '@mui/material';
-import { RefreshCcw, Settings as SettingsIcon, Share2 } from 'react-feather';
+import { Settings as SettingsIcon, Share2 } from 'react-feather';
 
 import StatsDialog from './StatsDialog';
 import Settings from './Settings';
