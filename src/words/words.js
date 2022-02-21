@@ -7,7 +7,7 @@ export const words = {
 };
 
 const getOrderOfMagnitudeLimit = (wordLength) => 10 ** words[wordLength].length.toString().length;
-const getRandomIndex = (wordLength) => (
+export const getRandomIndex = (wordLength) => (
   Math.floor(Math.random() * getOrderOfMagnitudeLimit(wordLength))
 );
 
