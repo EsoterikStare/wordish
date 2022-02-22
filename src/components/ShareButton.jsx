@@ -19,7 +19,7 @@ const ShareButton = () => {
     '',
     shareGrid,
     '',
-    `wordle-ish.herokuapp.com/?p=${state.id}`
+    `https://wordle-ish.herokuapp.com/?p=${state.id}`
   ].join('\r\n');
 
   const copyResult = (result) => setSnackbarOpen(result);
