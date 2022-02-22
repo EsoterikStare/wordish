@@ -1,4 +1,6 @@
-import { generatePuzzleId, getWordById, processGuess } from './utils';
+import {
+  parsePuzzleId, generatePuzzleId, getWordById, processGuess
+} from './utils';
 import { getRandomIndex, selectNewWord } from './words';
 
 const appStateReducer = (state, { type, value }) => {
@@ -86,7 +88,8 @@ const appStateReducer = (state, { type, value }) => {
         gameState: 'playing',
         previousGuesses: [],
         solution: newRandomWord,
-        id: newRandomId
+        id: newRandomId,
+        idUpdateFlag: true
       };
     }
     case 'updateWordLength': {
@@ -94,13 +97,18 @@ const appStateReducer = (state, { type, value }) => {
         return { ...state };
       }
 
+      const newRandomId = generatePuzzleId(getRandomIndex(value), value);
+      const newRandomWord = getWordById(newRandomId);
+
       return {
         ...state,
         currentGuess: [],
         maxGuesses: value + 1,
         previousGuesses: [],
-        solution: selectNewWord(value),
-        wordLength: value
+        solution: newRandomWord,
+        wordLength: value,
+        id: newRandomId,
+        idUpdateFlag: true
       };
     }
     case 'updateColorblindMode': {
@@ -109,13 +117,27 @@ const appStateReducer = (state, { type, value }) => {
         colorblindMode: value
       };
     }
-    case 'updatePuzzleId': {
+    case 'loadNewPuzzle': {
+      const { wordLength } = parsePuzzleId(value);
       const newWord = getWordById(value);
-      return { ...state, id: value, solution: newWord };
+      return {
+        ...state,
+        id: value,
+        solution: newWord,
+        wordLength,
+        maxGuesses: wordLength + 1,
+        idUpdateFlag: true
+      };
     }
     case 'updateDailyPuzzles': {
       console.log('updateDailyPuzzels', { value });
       return { ...state, daily: value };
+    }
+    case 'removeIdUpdateFlag': {
+      console.log('remove semaphore');
+      const newState = { ...state };
+      delete newState.idUpdateFlag;
+      return { ...newState };
     }
     default: {
       throw new Error(`Unhandled action type: ${type}`);

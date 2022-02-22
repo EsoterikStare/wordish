@@ -7,14 +7,25 @@ import { Header, Keyboard, WordGrid } from './components';
 
 const App = () => {
   const { state, dispatch } = useAppState();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const { id } = state;
   const idParam = searchParams.get('p');
 
-  if (id !== idParam) {
-    dispatch({ type: 'updatePuzzleId', value: idParam });
-  }
+  React.useEffect(() => {
+    if (id !== idParam && state.idUpdateFlag) {
+      console.log('id changed effect');
+      setSearchParams({ p: id });
+      dispatch({ type: 'removeIdUpdateFlag' });
+    }
+  }, [id]);
+
+  React.useEffect(() => {
+    if (id !== idParam) {
+      console.log('idParam changed effect');
+      dispatch({ type: 'loadNewPuzzle', value: idParam });
+    }
+  }, [idParam]);
 
   const handleKeyDown = (e) => {
     const alpha = /[a-zA-Z]/;
