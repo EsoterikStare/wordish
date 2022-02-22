@@ -1,10 +1,7 @@
-import { useSearchParams } from 'react-router-dom';
-
 import { generatePuzzleId, getWordById, processGuess } from './utils';
 import { getRandomIndex, selectNewWord } from './words';
 
 const appStateReducer = (state, { type, value }) => {
-  // const [searchParams, setSearchParams] = useSearchParams();
   switch (type) {
     case 'add': {
       if (
@@ -82,13 +79,13 @@ const appStateReducer = (state, { type, value }) => {
     }
     case 'reset': {
       const newRandomId = generatePuzzleId(getRandomIndex(state.wordLength), state.wordLength);
-      // setSearchParams({ p: newRandomId });
+      const newRandomWord = getWordById(newRandomId);
       return {
         ...state,
         currentGuess: [],
         gameState: 'playing',
         previousGuesses: [],
-        solution: selectNewWord(state.wordLength),
+        solution: newRandomWord,
         id: newRandomId
       };
     }
@@ -114,8 +111,7 @@ const appStateReducer = (state, { type, value }) => {
     }
     case 'updatePuzzleId': {
       const newWord = getWordById(value);
-      console.log('updatePuzzleId', { value, newWord });
-      return { ...state };
+      return { ...state, id: value, solution: newWord };
     }
     case 'updateDailyPuzzles': {
       console.log('updateDailyPuzzels', { value });

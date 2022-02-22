@@ -5,6 +5,11 @@ const MULTIPLIER = 365;
 
 const encode = (number) => Math.abs(number * MULTIPLIER).toString(BASE);
 
+const wordCounts = Object.keys(words).reduce((acc, key) => {
+  acc[key] = words[key].length;
+  return acc;
+}, {});
+
 // Given an index and word length, deterministically generate an id
 export const generatePuzzleId = (index, wordLength) => {
   const wordLengthPart = encode(wordLength);
@@ -22,17 +27,12 @@ export const parsePuzzleId = (id) => {
 
 export const getWordById = (id) => {
   const { index, wordLength } = parsePuzzleId(id);
-  console.log('getWordById', { id, index, wordLength });
-  return (words[wordLength] && words[wordLength][index]) || '';
+  const newWord = (words[wordLength] && words[wordLength][index % wordCounts[wordLength]]) || '';
+  return newWord;
 };
 
 // Given a date (YYYYMMDD), deterministically generate an id for the puzzle for that date.
 export const generateDailyIds = (date) => {
-  const wordCounts = Object.keys(words).reduce((acc, key) => {
-    acc[key] = words[key].length;
-    return acc;
-  }, {});
-
   const generateIdForLength = (length) => (
     generatePuzzleId((parseInt(date, 10) * MULTIPLIER) % wordCounts[length], length)
   );

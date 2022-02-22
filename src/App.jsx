@@ -6,10 +6,15 @@ import { useAppState } from './AppStateContext';
 import { Header, Keyboard, WordGrid } from './components';
 
 const App = () => {
-  const { dispatch } = useAppState();
+  const { state, dispatch } = useAppState();
   const [searchParams] = useSearchParams();
 
-  const puzzleId = searchParams.get('p');
+  const { id } = state;
+  const idParam = searchParams.get('p');
+
+  if (id !== idParam) {
+    dispatch({ type: 'updatePuzzleId', value: idParam });
+  }
 
   const handleKeyDown = (e) => {
     const alpha = /[a-zA-Z]/;
@@ -28,10 +33,6 @@ const App = () => {
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   });
-
-  React.useEffect(() => {
-    dispatch({ type: 'updatePuzzleId', value: puzzleId });
-  }, [puzzleId]);
 
   return (
     <Grid alignItems="center" container flexDirection="column" justifyContent="space-around" sx={{ backgroundColor: '#151515', height: '100vh' }}>
