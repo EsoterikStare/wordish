@@ -36,9 +36,11 @@ const Keyboard = () => {
   const guessedLetters = state.previousGuesses.reduce((acc, guessArray) => {
     guessArray.forEach(({ guessChar, type }) => {
       const prevType = acc[guessChar];
-      if (prevType && guessTypePriority[prevType] < guessTypePriority[type]) {
+      if (prevType) {
         // if the letter is already guessed, only update if guess type improved
-        acc[guessChar] = type;
+        if (guessTypePriority[prevType] < guessTypePriority[type]) {
+          acc[guessChar] = type;
+        }
       } else {
         // if the letter is not already guessed, add it as is.
         acc[guessChar] = type;
