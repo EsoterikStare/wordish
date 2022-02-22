@@ -12,6 +12,10 @@ const App = () => {
   const { id } = state;
   const idParam = searchParams.get('p');
 
+  if (!idParam) {
+    dispatch({ type: 'reset' });
+  }
+
   React.useEffect(() => {
     // id updated in state, update url
     if (id !== idParam && state.idUpdateFlag) {
@@ -22,7 +26,7 @@ const App = () => {
 
   React.useEffect(() => {
     // url updated, update id in state
-    if (id !== idParam) {
+    if (idParam && id !== idParam) {
       dispatch({ type: 'loadNewPuzzle', value: idParam });
     }
   }, [idParam]);
