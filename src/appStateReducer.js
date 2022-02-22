@@ -122,10 +122,12 @@ const appStateReducer = (state, { type, value }) => {
       const newWord = getWordById(value);
       return {
         ...state,
+        currentGuess: [],
         id: value,
         solution: newWord,
         wordLength,
         maxGuesses: wordLength + 1,
+        previousGuesses: [],
         idUpdateFlag: true
       };
     }
