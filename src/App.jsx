@@ -13,19 +13,26 @@ const App = () => {
   const idParam = searchParams.get('p');
 
   React.useEffect(() => {
+    // id updated in state, update url
     if (id !== idParam && state.idUpdateFlag) {
-      console.log('id changed effect');
       setSearchParams({ p: id });
       dispatch({ type: 'removeIdUpdateFlag' });
     }
   }, [id]);
 
   React.useEffect(() => {
+    // url updated, update id in state
     if (id !== idParam) {
-      console.log('idParam changed effect');
       dispatch({ type: 'loadNewPuzzle', value: idParam });
     }
   }, [idParam]);
+
+  React.useEffect(() => {
+    // clean up the lingering flag after new url is loaded
+    if (state.idUpdateFlag) {
+      dispatch({ type: 'removeIdUpdateFlag' });
+    }
+  }, [state.idUpdateFlag]);
 
   const handleKeyDown = (e) => {
     const alpha = /[a-zA-Z]/;

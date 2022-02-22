@@ -136,7 +136,6 @@ const appStateReducer = (state, { type, value }) => {
       return { ...state, daily: value };
     }
     case 'removeIdUpdateFlag': {
-      console.log('remove semaphore');
       const newState = { ...state };
       delete newState.idUpdateFlag;
       return { ...newState };
