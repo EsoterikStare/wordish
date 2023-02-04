@@ -16,7 +16,7 @@ const Word = ({ word }) => (
 );
 
 Word.propTypes = {
-  word: arrayOf(shape({ guessChar: string, type: string })).isRequired
+  word: arrayOf(shape({ guessChar: string, type: string })).isRequired,
 };
 
 export default Word;

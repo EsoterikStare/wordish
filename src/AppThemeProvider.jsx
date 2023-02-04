@@ -18,20 +18,20 @@ const AppThemeProvider = ({ children }) => {
         styleOverrides: {
           root: {
             display: 'flex',
-            justifyContent: 'center'
-          }
-        }
-      }
+            justifyContent: 'center',
+          },
+        },
+      },
     },
     palette: {
       letterStatus: {
         [ABSENT]: '#252525',
         [LOCATED]: colorblindMode ? blue[500] : 'rgb(76, 103, 37)',
-        [PRESENT]: colorblindMode ? orange[500] : darken(amber.A700, 0.3)
+        [PRESENT]: colorblindMode ? orange[500] : darken(amber.A700, 0.3),
       },
-      mode: 'dark'
+      mode: 'dark',
     },
-    spacing: 4
+    spacing: 4,
   });
 
   return (
@@ -42,7 +42,7 @@ const AppThemeProvider = ({ children }) => {
 };
 
 AppThemeProvider.propTypes = {
-  children: node.isRequired
+  children: node.isRequired,
 };
 
 export default AppThemeProvider;

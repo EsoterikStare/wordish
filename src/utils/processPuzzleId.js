@@ -40,6 +40,6 @@ export const generateDailyIds = (date) => {
   return {
     date,
     fiveLetterId: generateIdForLength(5),
-    sixLetterId: generateIdForLength(6)
+    sixLetterId: generateIdForLength(6),
   };
 };

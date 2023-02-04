@@ -28,7 +28,7 @@ const useLocalStorage = (storageName, { parse = (value) => value } = {}) => {
 
   return [
     parse(window.localStorage.getItem(storageName)),
-    (newData) => window.localStorage.setItem(storageName, newData)
+    (newData) => window.localStorage.setItem(storageName, newData),
   ];
 };
 

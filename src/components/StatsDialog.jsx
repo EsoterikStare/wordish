@@ -6,7 +6,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle
+  DialogTitle,
 } from '@mui/material';
 
 import ShareButton from './ShareButton';
@@ -18,7 +18,7 @@ const GameOverDialog = ({ open, onClose }) => {
   const titles = {
     playing: "Don't give up!",
     win: 'You did it!',
-    lose: "That's ok! Try another!"
+    lose: "That's ok! Try another!",
   };
   const dialogContent = "Someday, I'll have some metrics to show you. But not today. =(";
   const handleResetButtonClick = () => {
@@ -54,7 +54,7 @@ const GameOverDialog = ({ open, onClose }) => {
 
 GameOverDialog.propTypes = {
   open: bool.isRequired,
-  onClose: func.isRequired
+  onClose: func.isRequired,
 };
 
 GameOverDialog.defaultProps = {};

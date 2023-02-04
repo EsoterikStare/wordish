@@ -10,7 +10,7 @@ const WordGrid = () => {
 
   // Empty words set based on current settings
   const getWordsTemplate = () => Array(state.maxGuesses).fill(
-    Array(state.wordLength).fill({ guessChar: '' })
+    Array(state.wordLength).fill({ guessChar: '' }),
   );
 
   // Empty words templates merged with previous guesses and current guess

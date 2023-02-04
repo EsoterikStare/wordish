@@ -33,8 +33,8 @@ const Key = ({ label, guessedLetters }) => {
           minWidth: 38,
           userSelect: 'none',
           '&:hover': {
-            backgroundColor: theme.palette.letterStatus[keyStatus] || '#555'
-          }
+            backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
+          },
         })}
       >
         {label.toUpperCase()}
@@ -45,7 +45,7 @@ const Key = ({ label, guessedLetters }) => {
 
 Key.propTypes = {
   label: string.isRequired,
-  guessedLetters: shape({}).isRequired
+  guessedLetters: shape({}).isRequired,
 };
 
 export default Key;

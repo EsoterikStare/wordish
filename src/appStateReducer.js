@@ -1,7 +1,7 @@
 import {
-  parsePuzzleId, generatePuzzleId, getWordById, processGuess
+  parsePuzzleId, generatePuzzleId, getWordById, processGuess,
 } from './utils';
-import { getRandomIndex, selectNewWord } from './words';
+import { getRandomIndex } from './words';
 
 const appStateReducer = (state, { type, value }) => {
   switch (type) {
@@ -12,7 +12,7 @@ const appStateReducer = (state, { type, value }) => {
       ) {
         return {
           ...state,
-          currentGuess: [...state.currentGuess, { guessChar: value }]
+          currentGuess: [...state.currentGuess, { guessChar: value }],
         };
       }
       return state;
@@ -21,7 +21,7 @@ const appStateReducer = (state, { type, value }) => {
       const sliceIndex = state.currentGuess.length - 1;
       return {
         ...state,
-        currentGuess: state.currentGuess.slice(0, sliceIndex) // remove last index
+        currentGuess: state.currentGuess.slice(0, sliceIndex), // remove last index
       };
     }
 
@@ -47,8 +47,8 @@ const appStateReducer = (state, { type, value }) => {
             gameState: 'win',
             previousGuesses: [
               ...state.previousGuesses,
-              processGuess(state.currentGuess, state.solution)
-            ]
+              processGuess(state.currentGuess, state.solution),
+            ],
           };
         }
 
@@ -60,8 +60,8 @@ const appStateReducer = (state, { type, value }) => {
             gameState: 'lose',
             previousGuesses: [
               ...state.previousGuesses,
-              processGuess(state.currentGuess, state.solution)
-            ]
+              processGuess(state.currentGuess, state.solution),
+            ],
           };
         }
 
@@ -71,8 +71,8 @@ const appStateReducer = (state, { type, value }) => {
           currentGuess: [],
           previousGuesses: [
             ...state.previousGuesses,
-            processGuess(state.currentGuess, state.solution)
-          ]
+            processGuess(state.currentGuess, state.solution),
+          ],
         };
       }
 
@@ -89,7 +89,7 @@ const appStateReducer = (state, { type, value }) => {
         previousGuesses: [],
         solution: newRandomWord,
         id: newRandomId,
-        idUpdateFlag: true
+        idUpdateFlag: true,
       };
     }
     case 'updateWordLength': {
@@ -108,13 +108,13 @@ const appStateReducer = (state, { type, value }) => {
         solution: newRandomWord,
         wordLength: value,
         id: newRandomId,
-        idUpdateFlag: true
+        idUpdateFlag: true,
       };
     }
     case 'updateColorblindMode': {
       return {
         ...state,
-        colorblindMode: value
+        colorblindMode: value,
       };
     }
     case 'loadNewPuzzle': {
@@ -128,7 +128,7 @@ const appStateReducer = (state, { type, value }) => {
         wordLength,
         maxGuesses: wordLength + 1,
         previousGuesses: [],
-        idUpdateFlag: true
+        idUpdateFlag: true,
       };
     }
     case 'updateDailyPuzzles': {

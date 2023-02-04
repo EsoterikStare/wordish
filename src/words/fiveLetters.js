@@ -398,5 +398,5 @@ export default [
   'White',
   'Whole',
   'Wrong',
-  'Young'
+  'Young',
 ];

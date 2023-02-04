@@ -4,33 +4,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: [
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'wordish.bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './public/index.html', favicon: './public/favicon.ico' })
+    new HtmlWebpackPlugin({ template: './public/index.html', favicon: './public/favicon.ico' }),
   ],
   devServer: {
     client: {
       overlay: true,
-      progress: true
+      progress: true,
     },
     hot: true,
-    port: 3000
-  }
+    port: 3000,
+  },
 };
