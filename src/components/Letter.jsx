@@ -19,7 +19,7 @@ const StyledDiv = styled('div')(({ theme, type }) => ({
   height: 50,
   justifyContent: 'center',
   width: 50,
-  userSelect: 'none'
+  userSelect: 'none',
 }));
 
 const Letter = ({ guessChar, type }) => (
@@ -30,11 +30,11 @@ const Letter = ({ guessChar, type }) => (
 
 Letter.propTypes = {
   guessChar: string.isRequired,
-  type: string
+  type: string,
 };
 
 Letter.defaultProps = {
-  type: undefined
+  type: undefined,
 };
 
 export default Letter;

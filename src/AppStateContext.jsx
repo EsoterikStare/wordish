@@ -20,7 +20,7 @@ const AppStateProvider = ({ children }) => {
     previousGuesses: storedPreviousGuesses,
     gameState: storedGameState,
     daily: storedDaily,
-    id: storedId
+    id: storedId,
   } = storedState || {};
 
   const [state, dispatch] = React.useReducer(appStateReducer, {
@@ -34,9 +34,9 @@ const AppStateProvider = ({ children }) => {
     daily: storedDaily || {
       date: '',
       fiveLetterId: '',
-      sixLetterId: ''
+      sixLetterId: '',
     },
-    id: storedId || ''
+    id: storedId || '',
   });
 
   React.useEffect(() => {
@@ -46,7 +46,7 @@ const AppStateProvider = ({ children }) => {
 
   const value = React.useMemo(() => ({
     state,
-    dispatch
+    dispatch,
   }), [state, dispatch]);
 
   const nowDate = format(new Date(), 'yyyyMMdd');
@@ -62,7 +62,7 @@ const AppStateProvider = ({ children }) => {
 };
 
 AppStateProvider.propTypes = {
-  children: node.isRequired
+  children: node.isRequired,
 };
 
 const useAppState = () => {

@@ -20,7 +20,7 @@ const Keyboard = () => {
   const guessTypePriority = {
     [LOCATED]: 2,
     [PRESENT]: 1,
-    [ABSENT]: 0
+    [ABSENT]: 0,
   };
 
   /**

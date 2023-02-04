@@ -32,8 +32,8 @@ const ActionKey = ({ label, action, ariaLabel }) => {
           minWidth: 58,
           userSelect: 'none',
           '&:hover': {
-            backgroundColor: '#555'
-          }
+            backgroundColor: '#555',
+          },
         })}
       >
         {label}
@@ -45,11 +45,11 @@ const ActionKey = ({ label, action, ariaLabel }) => {
 ActionKey.propTypes = {
   action: string.isRequired,
   ariaLabel: string,
-  label: oneOfType([node, string]).isRequired
+  label: oneOfType([node, string]).isRequired,
 };
 
 ActionKey.defaultProps = {
-  ariaLabel: undefined
+  ariaLabel: undefined,
 };
 
 export default ActionKey;

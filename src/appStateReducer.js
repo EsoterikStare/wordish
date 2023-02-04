@@ -1,7 +1,7 @@
 import {
   parsePuzzleId, generatePuzzleId, getWordById, processGuess,
 } from './utils';
-import { getRandomIndex, selectNewWord } from './words';
+import { getRandomIndex } from './words';
 
 const appStateReducer = (state, { type, value }) => {
   switch (type) {

@@ -3,5 +3,5 @@
 export const letterStatus = {
   LOCATED: 'located',
   PRESENT: 'present',
-  ABSENT: 'absent'
+  ABSENT: 'absent',
 };
