@@ -8,7 +8,7 @@
   "parser": "@babel/eslint-parser",
   "plugins": ["jest"],
   "rules": {
-    // "comma-dangle": "off",
+    "arrow-parens": "off",
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
@@ -16,6 +16,7 @@
     "jest/valid-expect": "error",
     "linebreak-style": "off",
     "no-console": "off",
+    "no-prototype-builtins": "off",
     "react/function-component-definition": [
       "warn",
       {
