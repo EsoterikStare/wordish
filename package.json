@@ -4,8 +4,8 @@
   "description": "A riff on the ever-popular game, Wordle",
   "keywords": [],
   "engines": {
-    "node": "14.x",
-    "npm": "6.x"
+    "node": "18.x",
+    "npm": "8.x"
   },
   "main": "src/index.js",
   "proxy": "localhost:5000",
