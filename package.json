@@ -15,7 +15,7 @@
     "heroku:serve": "node server.js",
     "serve:dev": "concurrently \"npm run build:watch\" \"nodemon server.js\"",
     "start": "webpack serve --mode development",
-    "test": "jest --watch"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
