@@ -12,7 +12,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:watch": "webpack --watch --mode development",
-    "heroku:serve": "node server.js",
+    "serve": "node server.js",
     "serve:dev": "concurrently \"npm run build:watch\" \"nodemon server.js\"",
     "start": "webpack serve --mode development",
     "test": "jest --watchAll"
