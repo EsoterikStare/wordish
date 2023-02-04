@@ -6,11 +6,15 @@ describe('processGuess', () => {
   it('should be defined', () => {
     expect(processGuess).toBeDefined();
   });
-  it('should return an array of objects containing the keys "guessChar" and "type"', () => {
+  it('should return an array of objects containing the correct keys and value types', () => {
     const result = processGuess(strToGuessObj('test'), 'test');
 
-    const hasCorrectKeys = resultArr => resultArr.every(obj => obj.hasOwnProperty('guessChar') && obj.hasOwnProperty('type'));
-    expect(hasCorrectKeys(result)).toBe(true);
+    result.forEach(item => {
+      expect(item).toHaveProperty('guessChar');
+      expect(item).toHaveProperty('type');
+      expect(typeof item.guessChar).toBe('string');
+      expect(typeof item.type).toBe('string');
+    });
   });
   it('should return type of "located" when the guessChar position matches the answer character in that same position', () => {
     const result = processGuess(strToGuessObj('testy'), 'testy');
