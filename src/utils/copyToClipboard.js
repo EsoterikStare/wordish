@@ -1,70 +1,25 @@
-const copyToClipboard = (content, callback) => {
-  let textarea;
+const copyToClipboard = async (content, callback) => {
   let result;
 
-  function iOS() {
-    return [
-      'iPad Simulator',
-      'iPhone Simulator',
-      'iPod Simulator',
-      'iPad',
-      'iPhone',
-      'iPod'
-    ].includes(navigator.platform)
-    // iPad on iOS 13 detection
-    || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
-  }
+  const mobileUserAgent = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  // iPad on iOS 13+ detection, since the UA looks more like a laptop now.
+  const modernIpad = (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
 
-  const iOSShare = async (data) => {
+  if (mobileUserAgent || modernIpad) {
     try {
-      await navigator.share(data);
-      result = true;
+      await navigator.share({ text: content });
     } catch (err) {
-      result = false;
+      console.error(err);
     }
-  };
-
-  if (iOS()) {
-    iOSShare({ text: content });
     return;
   }
 
-  // Have to append to the dialog since it's the only focusable layer when this fires.
-  const dialogBackdrop = document.getElementsByClassName('MuiDialogContent-root')[0];
-
   try {
-    textarea = document.createElement('textarea');
-
-    // readonly prevents the keyboard from popping up when
-    // the textfield focuses.
-    textarea.setAttribute('readonly', true);
-    // iOS only allows copying from contenteditable fields
-    textarea.setAttribute('contenteditable', true);
-    // prevent scroll from jumping to the bottom when focus is set.
-    textarea.style.position = 'fixed';
-    textarea.value = content;
-
-    dialogBackdrop.appendChild(textarea);
-
-    // console.log('textarea', textarea);
-    // debugger;
-
-    textarea.focus();
-    textarea.select();
-
-    const range = document.createRange();
-    range.selectNodeContents(textarea);
-
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    textarea.setSelectionRange(0, textarea.value.length);
-    result = document.execCommand('copy');
+    await navigator.clipboard.writeText(content);
+    result = true;
   } catch (err) {
+    result = false;
     console.error(err);
-  } finally {
-    dialogBackdrop.removeChild(textarea);
   }
 
   callback(!!result);
