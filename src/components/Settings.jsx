@@ -10,7 +10,6 @@ import { words } from '../words';
 const WordLengthItem = () => {
   const { state, dispatch } = useAppState();
   const { wordLength } = state;
-  console.log('wordLength', { wordsKeys: Object.keys(words) });
   return (
     <Grid alignItems="center" container justifyContent="space-between" spacing={8}>
       <Grid item>
