@@ -1,0 +1,198 @@
+{
+  "colorblindMode": true,
+  "currentGuess": [],
+  "solution": "abound",
+  "maxGuesses": 7,
+  "wordLength": 6,
+  "previousGuesses": [
+    [
+      {
+        "guessChar": "t",
+        "type": "absent"
+      },
+      {
+        "guessChar": "r",
+        "type": "absent"
+      },
+      {
+        "guessChar": "i",
+        "type": "absent"
+      },
+      {
+        "guessChar": "a",
+        "type": "present"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "s",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "e",
+        "type": "absent"
+      },
+      {
+        "guessChar": "n",
+        "type": "present"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "u",
+        "type": "located"
+      },
+      {
+        "guessChar": "g",
+        "type": "absent"
+      },
+      {
+        "guessChar": "h",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "a",
+        "type": "located"
+      },
+      {
+        "guessChar": "m",
+        "type": "absent"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "u",
+        "type": "located"
+      },
+      {
+        "guessChar": "n",
+        "type": "located"
+      },
+      {
+        "guessChar": "t",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "a",
+        "type": "located"
+      },
+      {
+        "guessChar": "c",
+        "type": "absent"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "u",
+        "type": "located"
+      },
+      {
+        "guessChar": "n",
+        "type": "located"
+      },
+      {
+        "guessChar": "t",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "f",
+        "type": "absent"
+      },
+      {
+        "guessChar": "i",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "e",
+        "type": "absent"
+      },
+      {
+        "guessChar": "r",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "f",
+        "type": "absent"
+      },
+      {
+        "guessChar": "i",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "e",
+        "type": "absent"
+      },
+      {
+        "guessChar": "r",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "f",
+        "type": "absent"
+      },
+      {
+        "guessChar": "i",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      },
+      {
+        "guessChar": "e",
+        "type": "absent"
+      },
+      {
+        "guessChar": "r",
+        "type": "absent"
+      }
+    ]
+  ],
+  "gameState": "lose",
+  "daily": {
+    "date": "20230206",
+    "fiveLetterId": "22c0e721",
+    "sixLetterId": "88e88e"
+  },
+  "id": "88e88e"
+}
