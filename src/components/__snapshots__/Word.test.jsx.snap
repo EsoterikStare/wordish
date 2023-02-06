@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Word should correctly arrange Letter components into a row 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+  data-testid="word-grid"
+>
+  <div
+    class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    data-testid="letter-grid"
+  >
+    <div
+      class="css-1i1qu0k"
+    >
+      S
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    data-testid="letter-grid"
+  >
+    <div
+      class="css-1i1qu0k"
+    >
+      P
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+    data-testid="letter-grid"
+  >
+    <div
+      class="css-1i1qu0k"
+    >
+      O
+    </div>
+  </div>
+</div>
+`;

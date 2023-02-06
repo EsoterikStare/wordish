@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Letter should look correct for a guessed value 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+  data-testid="letter-grid"
+>
+  <div
+    class="css-1i1qu0k"
+  >
+    A
+  </div>
+</div>
+`;
+
+exports[`Letter should look correct for an absent value 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+  data-testid="letter-grid"
+>
+  <div
+    class="css-n6nm69"
+    type="absent"
+  >
+    A
+  </div>
+</div>
+`;
+
+exports[`Letter should look correct for an located value 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+  data-testid="letter-grid"
+>
+  <div
+    class="css-1f303dk"
+    type="located"
+  >
+    A
+  </div>
+</div>
+`;
+
+exports[`Letter should look correct for an present value 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+  data-testid="letter-grid"
+>
+  <div
+    class="css-12zm7ch"
+    type="present"
+  >
+    A
+  </div>
+</div>
+`;
