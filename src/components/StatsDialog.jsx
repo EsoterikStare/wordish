@@ -28,17 +28,17 @@ const GameOverDialog = ({ open, onClose }) => {
 
   return (
     <Dialog
-      aria-labelledby="game-over-dialog-title"
-      aria-describedby="game-over-dialog-content-text"
+      aria-labelledby="stats-dialog-title"
+      aria-describedby="stats-dialog-content-text"
       onClose={onClose}
       open={open}
     >
-      <DialogTitle id="game-over-dialog-title">
+      <DialogTitle data-testid="stats-dialog-title">
         {titles[state.gameState]}
       </DialogTitle>
       <DialogContent>
         {state.gameState === 'lose' && <DialogContentText sx={{ my: 4 }}>{`The word was ${state.solution.toUpperCase()}`}</DialogContentText>}
-        <DialogContentText id="game-over-dialog-content-text">
+        <DialogContentText data-testid="stats-dialog-content-text">
           {dialogContent}
         </DialogContentText>
       </DialogContent>
