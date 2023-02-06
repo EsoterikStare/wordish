@@ -1,0 +1,104 @@
+{
+  "colorblindMode": false,
+  "currentGuess": [],
+  "solution": "Mouth",
+  "maxGuesses": 6,
+  "wordLength": 5,
+  "previousGuesses": [
+    [
+      {
+        "guessChar": "t",
+        "type": "present"
+      },
+      {
+        "guessChar": "r",
+        "type": "absent"
+      },
+      {
+        "guessChar": "i",
+        "type": "absent"
+      },
+      {
+        "guessChar": "a",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "d",
+        "type": "absent"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "u",
+        "type": "located"
+      },
+      {
+        "guessChar": "s",
+        "type": "absent"
+      },
+      {
+        "guessChar": "e",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "s",
+        "type": "absent"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "u",
+        "type": "located"
+      },
+      {
+        "guessChar": "t",
+        "type": "located"
+      },
+      {
+        "guessChar": "h",
+        "type": "located"
+      }
+    ],
+    [
+      {
+        "guessChar": "m",
+        "type": "located"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "u",
+        "type": "located"
+      },
+      {
+        "guessChar": "t",
+        "type": "located"
+      },
+      {
+        "guessChar": "h",
+        "type": "located"
+      }
+    ]
+  ],
+  "gameState": "win",
+  "daily": {
+    "date": "20230205",
+    "fiveLetterId": "23a5721",
+    "sixLetterId": "16d88e"
+  },
+  "id": "4f65f721"
+}
