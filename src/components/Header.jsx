@@ -44,7 +44,7 @@ const Header = ({ title }) => {
 
   return (
     <>
-      <Grid data-testid="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
+      <Grid data-testid="header-grid" alignItems="center" container justifyContent="center" item role="banner" spacing={4}>
         <Grid id="stats-dialog-grid" item>
           <HeaderButton
             aria-label="Stats and Share"
