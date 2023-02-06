@@ -10,13 +10,17 @@ describe('Header', () => {
   });
   it('should render', () => {
     setup(<Header title="WORDISH" />);
-    expect(screen.getByTestId('header-grid')).toBeInTheDocument();
+    expect(screen.getByRole('banner')).toBeInTheDocument();
   });
   it('should render a heading with the given title prop text', () => {
     const title = 'WORDISH';
     setup(<Header title={title} />);
 
     expect(screen.getByRole('heading', { name: title })).toBeInTheDocument();
+  });
+  it("should have it's components arranged correctly", () => {
+    setup(<Header title="WORDISH" />);
+    expect(screen.getByRole('banner')).toMatchSnapshot();
   });
   describe('Stats button', () => {
     it('should render', () => {
