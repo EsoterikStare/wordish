@@ -7,7 +7,7 @@ const getShareGrid = (state) => {
   const squares = {
     [ABSENT]: '⬛',
     [LOCATED]: colorblindMode ? '🟦' : '🟩',
-    [PRESENT]: colorblindMode ? '🟧' : '🟨'
+    [PRESENT]: colorblindMode ? '🟧' : '🟨',
   };
 
   /**
