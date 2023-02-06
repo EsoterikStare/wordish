@@ -3,6 +3,7 @@ import { string } from 'prop-types';
 import { Grid, styled } from '@mui/material';
 
 /**
+ * TODO: Make remaining Letters match the "absent" type style after game is lost.
  * TODO: Add little "pop" animation when adding a letter
  * TODO: Add card flip animation on submit
  */
@@ -23,7 +24,7 @@ const StyledDiv = styled('div')(({ theme, type }) => ({
 }));
 
 const Letter = ({ guessChar, type }) => (
-  <Grid id="letter-grid" item>
+  <Grid data-testid="letter-grid" item>
     <StyledDiv type={type}>{guessChar.toUpperCase()}</StyledDiv>
   </Grid>
 );
