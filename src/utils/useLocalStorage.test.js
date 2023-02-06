@@ -1,17 +1,9 @@
+import { mockLocalStorage } from '../test-utils';
 import useLocalStorage from './useLocalStorage';
 
 describe('useLocalStorage', () => {
   beforeEach(() => {
-    // Mock window.localStorage with assertable functions.
-    Object.defineProperty(window, 'localStorage', {
-      value: {
-        clear: jest.fn(),
-        getItem: jest.fn(),
-        removeItem: jest.fn(),
-        setItem: jest.fn(),
-      },
-      writable: true,
-    });
+    mockLocalStorage();
   });
 
   it('should be defined', () => {
