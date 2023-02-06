@@ -132,7 +132,7 @@ const appStateReducer = (state, { type, value }) => {
       };
     }
     case 'updateDailyPuzzles': {
-      console.log('updateDailyPuzzels', { value });
+      // console.log('updateDailyPuzzels', { value });
       return { ...state, daily: value };
     }
     case 'removeIdUpdateFlag': {

@@ -4,7 +4,7 @@ import {
   Button,
   Grid,
   Typography,
-  styled
+  styled,
 } from '@mui/material';
 import { Settings as SettingsIcon, Share2 } from 'react-feather';
 
@@ -22,7 +22,7 @@ const HeaderButton = styled(Button)(() => ({
   userSelect: 'none',
   '&:hover': {
     backgroundColor: '#333',
-  }
+  },
 }));
 
 const Header = ({ title }) => {
@@ -65,7 +65,7 @@ const Header = ({ title }) => {
               color: 'white',
               fontSize: '2.5rem',
               fontWeight: 'bold',
-              userSelect: 'none'
+              userSelect: 'none',
             }}
           >
             {title}
@@ -92,7 +92,7 @@ const Header = ({ title }) => {
 };
 
 Header.propTypes = {
-  title: string.isRequired
+  title: string.isRequired,
 };
 
 export default Header;

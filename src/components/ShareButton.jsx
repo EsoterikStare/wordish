@@ -22,6 +22,7 @@ const ShareButton = () => {
     `https://wordish.onrender.com/?p=${state.id}`,
   ].join('\r\n');
 
+  // TODO: Might want to add a dialog for the failure case, so it's more clear when it doesn't work.
   const copyResult = (result) => setSnackbarOpen(result);
 
   const handleClick = () => {
