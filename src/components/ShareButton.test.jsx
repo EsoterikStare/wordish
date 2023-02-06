@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import React from 'react';
 
 import ShareButton from './ShareButton';
-import { setup, winGameState } from '../test-utils';
+import { mockLocalStorage, setup, winGameState } from '../test-utils';
 
 describe('ShareButton', () => {
   it('should be defined', () => {
@@ -14,17 +14,7 @@ describe('ShareButton', () => {
     expect(screen.getByRole('button', { name: 'Share' })).toBeInTheDocument();
   });
   it('should call navigator.clipboard.writeText when clicked from a desktop or laptop', async () => {
-    // Mock window.localStorage with assertable functions.
-    Object.defineProperty(window, 'localStorage', {
-      value: {
-        clear: jest.fn(),
-        // Provide a known win state from localStorage mock that will be used by AppStateProvider.
-        getItem: jest.fn(() => winGameState),
-        removeItem: jest.fn(),
-        setItem: jest.fn(),
-      },
-      writable: true,
-    });
+    mockLocalStorage(winGameState);
 
     // Setup expected with all whitespace removed because of issues matching trailing whitespace in
     // actual writeText content.

@@ -5,6 +5,7 @@ import StatsDialog from './StatsDialog';
 
 import {
   loseGameState,
+  mockLocalStorage,
   newGameState,
   setup,
   winGameState,
@@ -29,16 +30,7 @@ describe('StatsDialog', () => {
   });
   describe('When gameState is playing', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'localStorage', {
-        value: {
-          clear: jest.fn(),
-          // Provide a new game state from localStorage mock that will be used by AppStateProvider.
-          getItem: jest.fn(() => newGameState),
-          removeItem: jest.fn(),
-          setItem: jest.fn(),
-        },
-        writable: true,
-      });
+      mockLocalStorage(newGameState);
     });
     it('should display the correct heading', () => {
       setup(<StatsDialog onClose={noop} open />);
@@ -59,16 +51,7 @@ describe('StatsDialog', () => {
   });
   describe('When gameState is lose', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'localStorage', {
-        value: {
-          clear: jest.fn(),
-          // Provide a win game state from localStorage mock that will be used by AppStateProvider.
-          getItem: jest.fn(() => loseGameState),
-          removeItem: jest.fn(),
-          setItem: jest.fn(),
-        },
-        writable: true,
-      });
+      mockLocalStorage(loseGameState);
     });
     it('should display the correct heading', () => {
       setup(<StatsDialog onClose={noop} open />);
@@ -93,16 +76,7 @@ describe('StatsDialog', () => {
   });
   describe('When gameState is win', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'localStorage', {
-        value: {
-          clear: jest.fn(),
-          // Provide a win game state from localStorage mock that will be used by AppStateProvider.
-          getItem: jest.fn(() => winGameState),
-          removeItem: jest.fn(),
-          setItem: jest.fn(),
-        },
-        writable: true,
-      });
+      mockLocalStorage(winGameState);
     });
     it('should display the correct heading', () => {
       setup(<StatsDialog onClose={noop} open />);
