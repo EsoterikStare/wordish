@@ -17,14 +17,14 @@ describe('getRandomIndex', () => {
     const resultDigits = result.toString().length;
 
     expect(typeof result).toBe('number');
-    expect(resultDigits).toBe(fiveLetterWordCountDigits);
+    expect(resultDigits).toBeLessThanOrEqual(fiveLetterWordCountDigits);
   });
   it('should return a random index integer given a wordLength of 6', () => {
     const result = getRandomIndex(6);
     const resultDigits = result.toString().length;
 
     expect(typeof result).toBe('number');
-    expect(resultDigits).toBe(sixLetterWordCountDigits);
+    expect(resultDigits).toBeLessThanOrEqual(sixLetterWordCountDigits);
   });
 });
 
