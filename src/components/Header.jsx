@@ -44,7 +44,7 @@ const Header = ({ title }) => {
 
   return (
     <>
-      <Grid id="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
+      <Grid data-testid="header-grid" alignItems="center" container justifyContent="center" item spacing={4}>
         <Grid id="stats-dialog-grid" item>
           <HeaderButton
             aria-label="Stats and Share"
@@ -58,7 +58,7 @@ const Header = ({ title }) => {
             <Share2 />
           </HeaderButton>
         </Grid>
-        <Grid item xs="auto">
+        <Grid data-testid="title" item xs="auto">
           <Typography
             component="h1"
             sx={{
@@ -71,9 +71,9 @@ const Header = ({ title }) => {
             {title}
           </Typography>
         </Grid>
-        <Grid id="settings-button-grid" item>
+        <Grid data-testid="settings-button-grid" item>
           <HeaderButton
-            aria-label="settings"
+            aria-label="Settings"
             onClick={onSettingsClick}
             onKeyDown={(e) => {
               if (actionKeys.includes(e.key)) {
