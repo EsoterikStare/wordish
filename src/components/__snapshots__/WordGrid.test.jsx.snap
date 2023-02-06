@@ -1,0 +1,506 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WordGrid should correctly arrange Word components in a vertical stack 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-8xdlsc-MuiGrid-root"
+  data-testid="words-grid"
+>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        T
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        R
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        I
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-1eb3rk1"
+        type="present"
+      >
+        A
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        S
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        E
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-1eb3rk1"
+        type="present"
+      >
+        N
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        O
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        U
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        G
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        H
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        A
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        M
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        O
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        U
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        N
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        T
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        A
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        C
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        O
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        U
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-7h3hx9"
+        type="located"
+      >
+        N
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        T
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        F
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        I
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        E
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        R
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        F
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        I
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        E
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        R
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-1urxow7-MuiGrid-root"
+    data-testid="word-grid"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        F
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        I
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        L
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        E
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+      data-testid="letter-grid"
+    >
+      <div
+        class="css-n6nm69"
+        type="absent"
+      >
+        R
+      </div>
+    </div>
+  </div>
+</div>
+`;
