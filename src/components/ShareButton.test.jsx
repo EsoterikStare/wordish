@@ -2,21 +2,9 @@ import { screen } from '@testing-library/react';
 import React from 'react';
 
 import ShareButton from './ShareButton';
-import { setup, winGameState, expectedShareContent } from '../test-utils';
+import { setup, winGameState } from '../test-utils';
 
 describe('ShareButton', () => {
-  // Mock window.localStorage with assertable functions.
-  Object.defineProperty(window, 'localStorage', {
-    value: {
-      clear: jest.fn(),
-      // Provide a known win state from localStorage mock that will be used by AppStateProvider.
-      getItem: jest.fn(() => winGameState),
-      removeItem: jest.fn(),
-      setItem: jest.fn(),
-    },
-    writable: true,
-  });
-
   it('should be defined', () => {
     expect(ShareButton).toBeDefined();
   });
@@ -26,6 +14,18 @@ describe('ShareButton', () => {
     expect(screen.getByRole('button', { name: 'Share' })).toBeInTheDocument();
   });
   it('should call navigator.clipboard.writeText when clicked from a desktop or laptop', async () => {
+    // Mock window.localStorage with assertable functions.
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        clear: jest.fn(),
+        // Provide a known win state from localStorage mock that will be used by AppStateProvider.
+        getItem: jest.fn(() => winGameState),
+        removeItem: jest.fn(),
+        setItem: jest.fn(),
+      },
+      writable: true,
+    });
+
     // Setup expected with all whitespace removed because of issues matching trailing whitespace in
     // actual writeText content.
     const expectedContent = [
@@ -47,9 +47,9 @@ describe('ShareButton', () => {
     expect(navigator.clipboard.writeText).toHaveBeenCalledTimes(1);
 
     // Also remove all whitespace from content that writeText was called with.
-    const calledWith = navigator.clipboard.writeText.mock.calls[0][0].replace(/\s/g, '');
+    const calledWithValue = navigator.clipboard.writeText.mock.calls[0][0].replace(/\s/g, '');
 
     // Compare both values with all whitespace removed for reliable comparison.
-    expect(calledWith).toBe(expectedContent);
+    expect(expectedContent).toBe(calledWithValue);
   });
 });

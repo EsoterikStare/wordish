@@ -1,0 +1,70 @@
+{
+  "colorblindMode": true,
+  "currentGuess": [
+    {
+      "guessChar": "s"
+    },
+    {
+      "guessChar": "p"
+    },
+    {
+      "guessChar": "o"
+    }
+  ],
+  "solution": "Sport",
+  "maxGuesses": 6,
+  "wordLength": 5,
+  "previousGuesses": [
+    [
+      {
+        "guessChar": "t",
+        "type": "present"
+      },
+      {
+        "guessChar": "r",
+        "type": "present"
+      },
+      {
+        "guessChar": "i",
+        "type": "absent"
+      },
+      {
+        "guessChar": "a",
+        "type": "absent"
+      },
+      {
+        "guessChar": "l",
+        "type": "absent"
+      }
+    ],
+    [
+      {
+        "guessChar": "s",
+        "type": "located"
+      },
+      {
+        "guessChar": "h",
+        "type": "absent"
+      },
+      {
+        "guessChar": "o",
+        "type": "located"
+      },
+      {
+        "guessChar": "r",
+        "type": "located"
+      },
+      {
+        "guessChar": "t",
+        "type": "located"
+      }
+    ]
+  ],
+  "gameState": "playing",
+  "daily": {
+    "date": "20230206",
+    "fiveLetterId": "22c0e721",
+    "sixLetterId": "88e88e"
+  },
+  "id": "de6c721"
+}
