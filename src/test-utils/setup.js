@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { node } from 'prop-types'
+import { node } from 'prop-types';
 import React from 'react';
 
 import { AppStateProvider } from '../AppStateContext';
