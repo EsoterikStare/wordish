@@ -19,7 +19,6 @@ const Key = ({ label, guessedLetters }) => {
   return (
     <Grid id="key-grid" item justifyContent="center">
       <Button
-        aria-label={label}
         role="button"
         disableFocusRipple
         onClick={dispatchAddAction}
