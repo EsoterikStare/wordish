@@ -59,10 +59,10 @@ const Keyboard = () => {
   );
 
   return (
-    <Grid id="keyboard-grid" alignItems="center" container flexDirection="column" item spacing={KEY_SPACING}>
-      <Grid id="keyboard-row-grid" container item justifyContent="center" spacing={KEY_SPACING} wrap="nowrap">{topRow.map(keyMap)}</Grid>
-      <Grid id="keyboard-row-grid" container item justifyContent="center" spacing={KEY_SPACING} wrap="nowrap">{middleRow.map(keyMap)}</Grid>
-      <Grid id="keyboard-row-grid" container item justifyContent="center" spacing={KEY_SPACING} wrap="nowrap">
+    <Grid data-testid="keyboard-grid" alignItems="center" container flexDirection="column" item spacing={KEY_SPACING}>
+      <Grid data-testid="keyboard-row-grid" container item justifyContent="center" spacing={KEY_SPACING} wrap="nowrap">{topRow.map(keyMap)}</Grid>
+      <Grid data-testid="keyboard-row-grid" container item justifyContent="center" spacing={KEY_SPACING} wrap="nowrap">{middleRow.map(keyMap)}</Grid>
+      <Grid data-testid="keyboard-row-grid" container item justifyContent="center" spacing={KEY_SPACING} wrap="nowrap">
         <ActionKey label="Enter" action="submit" />
         {bottomRow.map(keyMap)}
         <ActionKey ariaLabel="delete" label={<Delete />} action="remove" />
