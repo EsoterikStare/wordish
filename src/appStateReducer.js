@@ -86,10 +86,10 @@ const appStateReducer = (state, { type, value }) => {
         ...state,
         currentGuess: [],
         gameState: 'playing',
-        previousGuesses: [],
-        solution: newRandomWord,
         id: newRandomId,
         idUpdateFlag: true,
+        previousGuesses: [],
+        solution: newRandomWord,
       };
     }
     case 'updateWordLength': {
@@ -103,12 +103,12 @@ const appStateReducer = (state, { type, value }) => {
       return {
         ...state,
         currentGuess: [],
+        id: newRandomId,
+        idUpdateFlag: true,
         maxGuesses: value + 1,
         previousGuesses: [],
         solution: newRandomWord,
         wordLength: value,
-        id: newRandomId,
-        idUpdateFlag: true,
       };
     }
     case 'updateColorblindMode': {
@@ -124,11 +124,11 @@ const appStateReducer = (state, { type, value }) => {
         ...state,
         currentGuess: [],
         id: value,
-        solution: newWord,
-        wordLength,
+        idUpdateFlag: true,
         maxGuesses: wordLength + 1,
         previousGuesses: [],
-        idUpdateFlag: true,
+        solution: newWord,
+        wordLength,
       };
     }
     case 'updateDailyPuzzles': {
