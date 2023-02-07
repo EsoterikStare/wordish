@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import React from 'react';
 
 import Header from './Header';
-import { setup } from '../test-utils';
+import { mockLocalStorage, setup, winGameState } from '../test-utils';
 
 describe('Header', () => {
   it('should be defined', () => {
@@ -21,6 +21,12 @@ describe('Header', () => {
   it("should have it's components arranged correctly", () => {
     setup(<Header title="WORDISH" />);
     expect(screen.getByRole('banner')).toMatchSnapshot();
+  });
+  it('should open the StatsDialog when gameState is not "playing"', () => {
+    const { resetLocalStorage } = mockLocalStorage(winGameState);
+    setup(<Header title="WORDISH" />);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    resetLocalStorage();
   });
   describe('Stats button', () => {
     it('should render', () => {
