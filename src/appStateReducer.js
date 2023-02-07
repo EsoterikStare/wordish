@@ -141,7 +141,8 @@ const appStateReducer = (state, { type, value }) => {
       return { ...newState };
     }
     default: {
-      throw new Error(`Unhandled action type: ${type}`);
+      console.error(new Error(`Unhandled action type: ${type}`));
+      return state;
     }
   }
 };
