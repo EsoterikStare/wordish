@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 import appStateReducer from './appStateReducer';
 import {
@@ -7,7 +7,7 @@ import {
   winGameState as winGameStateJSON,
 } from './test-utils';
 import {
-  generateDailyIds,
+  // generateDailyIds,
   generatePuzzleId,
   getWordById,
   parsePuzzleId,
