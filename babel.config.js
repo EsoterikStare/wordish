@@ -9,16 +9,16 @@ module.exports = {
           edge: '17',
           firefox: '60',
           ios: '15.2',
-          safari: '11.1'
+          safari: '11.1',
         },
         useBuiltIns: 'usage',
-        corejs: '3.6.5'
-      }
+        corejs: '3.6.5',
+      },
     ],
     ['@babel/preset-react'],
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
-    ['babel-plugin-styled-components', { ssr: true }]
-  ]
+    ['babel-plugin-styled-components', { ssr: true }],
+  ],
 };
