@@ -12,6 +12,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:watch": "webpack --watch --mode development",
+    "lint": "eslint . --ext .js,.jsx --report-unused-disable-directives --max-warnings 0 --cache",
     "serve": "node server.js",
     "serve:dev": "concurrently \"npm run build:watch\" \"nodemon server.js\"",
     "start": "webpack serve --mode development",
