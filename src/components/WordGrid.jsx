@@ -35,8 +35,8 @@ const WordGrid = () => {
 
   return (
     <Grid data-testid="words-grid" alignItems="center" container item justifyContent="center" spacing={1}>
-      {getWords().map((word, index) => (
-        <Word key={index.toString()} word={word} />
+      {getWords().map((word) => (
+        <Word key={word} word={word} />
       ))}
     </Grid>
   );

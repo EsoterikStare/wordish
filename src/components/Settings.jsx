@@ -22,8 +22,8 @@ const WordLengthItem = () => {
           onChange={(e, newValue) => dispatch({ type: 'updateWordLength', value: newValue || wordLength })}
           exclusive
         >
-          {Object.keys(words).map((length, index) => (
-            <ToggleButton key={index.toString()} value={parseInt(length, 10)} aria-label={length}>
+          {Object.keys(words).map((length) => (
+            <ToggleButton key={length} value={parseInt(length, 10)} aria-label={length}>
               {length}
             </ToggleButton>
           ))}

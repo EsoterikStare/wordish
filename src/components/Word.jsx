@@ -9,8 +9,8 @@ import Letter from './Letter';
  */
 const Word = ({ word }) => (
   <Grid data-testid="word-grid" container item justifyContent="center" spacing={1}>
-    {word.map(({ guessChar, type }, index) => (
-      <Letter key={index.toString()} guessChar={guessChar} type={type} />
+    {word.map(({ guessChar, type }) => (
+      <Letter key={guessChar} guessChar={guessChar} type={type} />
     ))}
   </Grid>
 );
