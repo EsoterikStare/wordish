@@ -1,12 +1,12 @@
 {
-  "extends": ["airbnb"],
+  "extends": ["airbnb", "prettier"],
   "env": {
     "browser": true,
     "jest/globals": true,
     "node": true
   },
   "parser": "@babel/eslint-parser",
-  "plugins": ["jest"],
+  "plugins": ["jest", "prettier"],
   "rules": {
     "arrow-parens": "off",
     "jest/no-disabled-tests": "warn",
@@ -17,6 +17,7 @@
     "linebreak-style": "off",
     "no-console": "off",
     "no-prototype-builtins": "off",
+    "prettier/prettier": ["error"],
     "react/function-component-definition": [
       "warn",
       {
