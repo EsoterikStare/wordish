@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WordGrid should correctly arrange Word components in a vertical stack 1`] = `
+exports[`WordGrid should look as expected 1`] = `
 <div
   class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-spacing-xs-1 css-8xdlsc-MuiGrid-root"
   data-testid="words-grid"
