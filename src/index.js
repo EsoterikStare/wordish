@@ -6,8 +6,8 @@ import App from './App';
 import { AppStateProvider } from './AppStateContext';
 import AppThemeProvider from './AppThemeProvider';
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <StrictMode>
     <AppStateProvider>
       <AppThemeProvider>
@@ -29,5 +29,4 @@ ReactDOM.render(
       </AppThemeProvider>
     </AppStateProvider>
   </StrictMode>,
-  rootElement,
 );
