@@ -1,7 +1,5 @@
 import { format } from 'date-fns';
-import {
-  generateDailyIds, generatePuzzleId, getWordById, parsePuzzleId,
-} from './processPuzzleId';
+import { generateDailyIds, generatePuzzleId, getWordById, parsePuzzleId } from './processPuzzleId';
 
 const getFormattedDate = () => format(new Date(), 'yyyyMMdd');
 

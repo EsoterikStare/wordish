@@ -9,7 +9,7 @@ const ActionKey = ({ label, action, ariaLabel }) => {
   const dispatchAction = () => {
     dispatch({ type: action });
   };
-  const handleKeydown = (e) => {
+  const handleKeydown = e => {
     const actionKeys = [' ', 'Enter'];
     if (actionKeys.includes(e.key)) {
       dispatchAction();
@@ -22,7 +22,7 @@ const ActionKey = ({ label, action, ariaLabel }) => {
         disableFocusRipple
         onClick={dispatchAction}
         onKeyDown={handleKeydown}
-        sx={(theme) => ({
+        sx={theme => ({
           backgroundColor: '#555',
           color: 'white',
           fontSize: 12,

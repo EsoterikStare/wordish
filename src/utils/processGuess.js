@@ -2,10 +2,14 @@ import { letterStatus } from '../constants';
 
 const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
-const getOtherGuessIndices = (guessArray, guessChar) => guessArray
-  .map((otherGuess, guessIndex) => ({ char: otherGuess.guessChar, guessIndex }))
-  .filter(({ char }) => char === guessChar)
-  .map(({ guessIndex }) => guessIndex);
+const getOtherGuessIndices = (guessArray, guessChar) =>
+  guessArray
+    .map((otherGuess, guessIndex) => ({
+      char: otherGuess.guessChar,
+      guessIndex,
+    }))
+    .filter(({ char }) => char === guessChar)
+    .map(({ guessIndex }) => guessIndex);
 
 const processGuess = (guess, answer) => {
   const answerArray = answer.toLowerCase().split('');
@@ -21,9 +25,7 @@ const processGuess = (guess, answer) => {
     return acc;
   }, {});
 
-  const getGuessType = ({
-    acc, charPresent, correctPosition, guessChar,
-  }) => {
+  const getGuessType = ({ acc, charPresent, correctPosition, guessChar }) => {
     if (correctPosition) {
       // If this letter was guessed more times than it occurs in
       // the solution, highlight it as absent instead.
@@ -33,7 +35,7 @@ const processGuess = (guess, answer) => {
 
         if (otherGuessIndices.length > 0) {
           // Set other non-located guesses to absent highlight.
-          otherGuessIndices.forEach((guessIndex) => {
+          otherGuessIndices.forEach(guessIndex => {
             acc.splice(guessIndex, 1, { guessChar, type: ABSENT });
           });
         }
@@ -73,7 +75,10 @@ const processGuess = (guess, answer) => {
     acc.push({
       guessChar,
       type: getGuessType({
-        acc, charPresent, correctPosition, guessChar,
+        acc,
+        charPresent,
+        correctPosition,
+        guessChar,
       }),
     });
     return acc;

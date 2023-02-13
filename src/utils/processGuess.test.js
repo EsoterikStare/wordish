@@ -22,18 +22,42 @@ describe('processGuess', () => {
   });
   it('should return type of "present" when the guessChar is in the answer, but not at the same position', () => {
     const result = processGuess(strToGuessObj('tsety'), 'testy');
-    expect(result.map(({ type }) => type)).toStrictEqual(['located', 'present', 'present', 'located', 'located']);
+    expect(result.map(({ type }) => type)).toStrictEqual([
+      'located',
+      'present',
+      'present',
+      'located',
+      'located',
+    ]);
   });
   it('should return type of "absent" when the guessChar is not in the answer at all', () => {
     const result = processGuess(strToGuessObj('tsaty'), 'testy');
-    expect(result.map(({ type }) => type)).toStrictEqual(['located', 'present', 'absent', 'located', 'located']);
+    expect(result.map(({ type }) => type)).toStrictEqual([
+      'located',
+      'present',
+      'absent',
+      'located',
+      'located',
+    ]);
   });
   it('should return type of "absent" when a character is guessed more times than it is present in the answer', () => {
     const result = processGuess(strToGuessObj('ttset'), 'testy');
-    expect(result.map(({ type }) => type)).toStrictEqual(['located', 'present', 'located', 'present', 'absent']);
+    expect(result.map(({ type }) => type)).toStrictEqual([
+      'located',
+      'present',
+      'located',
+      'present',
+      'absent',
+    ]);
   });
   it('should correctly set an earlier guessChar to type "absent" when that same character is "located" later in the guess', () => {
     const result = processGuess(strToGuessObj('ytsey'), 'testy');
-    expect(result.map(({ type }) => type)).toStrictEqual(['absent', 'present', 'located', 'present', 'located']);
+    expect(result.map(({ type }) => type)).toStrictEqual([
+      'absent',
+      'present',
+      'located',
+      'present',
+      'located',
+    ]);
   });
 });

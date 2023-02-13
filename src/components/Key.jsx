@@ -7,7 +7,7 @@ import { useAppState } from '../AppStateContext';
 const Key = ({ label, guessedLetters }) => {
   const { dispatch } = useAppState();
   const dispatchAddAction = () => dispatch({ type: 'add', value: label });
-  const handleKeyDown = (e) => {
+  const handleKeyDown = e => {
     const actionKeys = [' ', 'Enter'];
     if (actionKeys.includes(e.key)) {
       dispatchAddAction();
@@ -23,7 +23,7 @@ const Key = ({ label, guessedLetters }) => {
         disableFocusRipple
         onClick={dispatchAddAction}
         onKeyDown={handleKeyDown}
-        sx={(theme) => ({
+        sx={theme => ({
           backgroundColor: theme.palette.letterStatus[keyStatus] || '#555',
           color: 'white',
           fontSize: 20,

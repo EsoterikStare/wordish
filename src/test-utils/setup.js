@@ -9,9 +9,7 @@ import AppThemeProvider from '../AppThemeProvider';
 
 const Wrapper = ({ children }) => (
   <AppStateProvider>
-    <AppThemeProvider>
-      {children}
-    </AppThemeProvider>
+    <AppThemeProvider>{children}</AppThemeProvider>
   </AppStateProvider>
 );
 Wrapper.propTypes = {
@@ -19,7 +17,7 @@ Wrapper.propTypes = {
 };
 Wrapper.defaultProps = {};
 
-const setup = (jsx) => {
+const setup = jsx => {
   const { rerender, ...rest } = render(<Wrapper>{jsx}</Wrapper>);
   return {
     user: userEvent.setup(),

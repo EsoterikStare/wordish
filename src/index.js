@@ -18,15 +18,15 @@ root.render(
             </Route>
             <Route
               path="*"
-              element={(
+              element={
                 <main style={{ padding: '1rem' }}>
                   <p>Whoops! There&apos;s no such puzzle!</p>
                 </main>
-              )}
+              }
             />
           </Routes>
         </BrowserRouter>
       </AppThemeProvider>
     </AppStateProvider>
-  </StrictMode>,
+  </StrictMode>
 );
