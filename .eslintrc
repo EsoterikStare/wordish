@@ -6,14 +6,27 @@
     "node": true
   },
   "parser": "@babel/eslint-parser",
-  "plugins": ["jest", "prettier"],
+  "overrides": [
+    {
+      "files": ["**/*.test.js"],
+      "plugins": ["jest"],
+      "rules": {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
+      }
+    },
+    {
+      "extends": ["plugin:cypress/recommended"],
+      "files": ["**/*.cy.js"]
+    }
+  ],
+  "plugins": ["prettier"],
   "rules": {
     "arrow-parens": "off",
-    "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "linebreak-style": "off",
     "no-console": "off",
     "no-prototype-builtins": "off",
