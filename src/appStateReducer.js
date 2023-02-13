@@ -1,15 +1,10 @@
-import {
-  parsePuzzleId, generatePuzzleId, getWordById, processGuess,
-} from './utils';
+import { parsePuzzleId, generatePuzzleId, getWordById, processGuess } from './utils';
 import { getRandomIndex } from './words';
 
 const appStateReducer = (state, { type, value }) => {
   switch (type) {
     case 'add': {
-      if (
-        state.currentGuess.length < state.wordLength
-        && state.gameState === 'playing'
-      ) {
+      if (state.currentGuess.length < state.wordLength && state.gameState === 'playing') {
         return {
           ...state,
           currentGuess: [...state.currentGuess, { guessChar: value }],

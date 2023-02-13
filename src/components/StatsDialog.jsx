@@ -33,20 +33,26 @@ const GameOverDialog = ({ open, onClose }) => {
       onClose={onClose}
       open={open}
     >
-      <DialogTitle data-testid="stats-dialog-title">
-        {titles[state.gameState]}
-      </DialogTitle>
+      <DialogTitle data-testid="stats-dialog-title">{titles[state.gameState]}</DialogTitle>
       <DialogContent>
-        {state.gameState === 'lose' && <DialogContentText sx={{ my: 4 }}>{`The word was ${state.solution.toUpperCase()}`}</DialogContentText>}
+        {state.gameState === 'lose' && (
+          <DialogContentText
+            sx={{ my: 4 }}
+          >{`The word was ${state.solution.toUpperCase()}`}</DialogContentText>
+        )}
         <DialogContentText data-testid="stats-dialog-content-text">
           {dialogContent}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        {state.gameState === 'win' && (
-          <ShareButton />
-        )}
-        <Button color={state.gameState === 'playing' ? 'error' : 'primary'} onClick={handleResetButtonClick} variant="contained">{state.gameState === 'playing' ? 'New word' : 'Another!'}</Button>
+        {state.gameState === 'win' && <ShareButton />}
+        <Button
+          color={state.gameState === 'playing' ? 'error' : 'primary'}
+          onClick={handleResetButtonClick}
+          variant="contained"
+        >
+          {state.gameState === 'playing' ? 'New word' : 'Another!'}
+        </Button>
       </DialogActions>
     </Dialog>
   );

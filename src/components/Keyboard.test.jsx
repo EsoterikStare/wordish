@@ -3,13 +3,7 @@ import React from 'react';
 
 import Keyboard from './Keyboard';
 
-import {
-  loseGameState,
-  mockLocalStorage,
-  newGameState,
-  setup,
-  winGameState,
-} from '../test-utils';
+import { loseGameState, mockLocalStorage, newGameState, setup, winGameState } from '../test-utils';
 
 describe('Keyboard', () => {
   it('should be defined', () => {

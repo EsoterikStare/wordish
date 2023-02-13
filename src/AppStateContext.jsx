@@ -9,7 +9,9 @@ import appStateReducer from './appStateReducer';
 const AppStateContext = React.createContext();
 
 const AppStateProvider = ({ children }) => {
-  const [storedState, setStoredState] = useLocalStorage('appState', { parse: JSON.parse });
+  const [storedState, setStoredState] = useLocalStorage('appState', {
+    parse: JSON.parse,
+  });
 
   const {
     colorblindMode: storedColorblindMode,
@@ -44,21 +46,20 @@ const AppStateProvider = ({ children }) => {
     setStoredState(JSON.stringify(state));
   }, [state]);
 
-  const value = React.useMemo(() => ({
-    state,
-    dispatch,
-  }), [state, dispatch]);
+  const value = React.useMemo(
+    () => ({
+      state,
+      dispatch,
+    }),
+    [state, dispatch]
+  );
 
   const nowDate = format(new Date(), 'yyyyMMdd');
   if (state.daily.date !== nowDate) {
     dispatch({ type: 'updateDailyPuzzles', value: generateDailyIds(nowDate) });
   }
 
-  return (
-    <AppStateContext.Provider value={value}>
-      {children}
-    </AppStateContext.Provider>
-  );
+  return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;
 };
 
 AppStateProvider.propTypes = {

@@ -1,11 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import {
-  Button,
-  Grid,
-  Typography,
-  styled,
-} from '@mui/material';
+import { Button, Grid, Typography, styled } from '@mui/material';
 import { Settings as SettingsIcon, Share2 } from 'react-feather';
 
 import StatsDialog from './StatsDialog';
@@ -31,7 +26,7 @@ const Header = ({ title }) => {
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [settingsAnchor, setSettingsAnchor] = React.useState();
-  const onSettingsClick = (e) => {
+  const onSettingsClick = e => {
     setSettingsAnchor(e.target);
   };
   const onSettingsClose = () => setSettingsAnchor(undefined);
@@ -44,12 +39,20 @@ const Header = ({ title }) => {
 
   return (
     <>
-      <Grid data-testid="header-grid" alignItems="center" container justifyContent="center" item role="banner" spacing={4}>
+      <Grid
+        data-testid="header-grid"
+        alignItems="center"
+        container
+        justifyContent="center"
+        item
+        role="banner"
+        spacing={4}
+      >
         <Grid id="stats-dialog-grid" item>
           <HeaderButton
             aria-label="Stats and Share"
             onClick={() => setDialogOpen(true)}
-            onKeyDown={(e) => {
+            onKeyDown={e => {
               if (actionKeys.includes(e.key)) {
                 setDialogOpen(true);
               }
@@ -75,7 +78,7 @@ const Header = ({ title }) => {
           <HeaderButton
             aria-label="Settings"
             onClick={onSettingsClick}
-            onKeyDown={(e) => {
+            onKeyDown={e => {
               if (actionKeys.includes(e.key)) {
                 onSettingsClick(e);
               }

@@ -26,7 +26,9 @@ describe('ShareButton', () => {
       '⬛🟩🟩🟩🟩',
       '🟩🟩🟩🟩🟩',
       'https://wordish.onrender.com/?p=4f65f721',
-    ].join('').replace(/\s/g, '');
+    ]
+      .join('')
+      .replace(/\s/g, '');
 
     jest.spyOn(navigator.clipboard, 'writeText');
 

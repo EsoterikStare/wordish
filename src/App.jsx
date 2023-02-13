@@ -38,7 +38,7 @@ const App = () => {
     }
   }, [state.idUpdateFlag]);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = e => {
     const alpha = /[a-zA-Z]/;
     if (e.key.length === 1 && alpha.test(e.key)) {
       dispatch({ type: 'add', value: e.key });
@@ -57,7 +57,13 @@ const App = () => {
   });
 
   return (
-    <Grid alignItems="center" container flexDirection="column" justifyContent="space-around" sx={{ backgroundColor: '#151515', height: '100vh' }}>
+    <Grid
+      alignItems="center"
+      container
+      flexDirection="column"
+      justifyContent="space-around"
+      sx={{ backgroundColor: '#151515', height: '100vh' }}
+    >
       <Header title="WORDISH" />
       <WordGrid />
       <Keyboard />

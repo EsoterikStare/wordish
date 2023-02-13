@@ -3,13 +3,7 @@ import React from 'react';
 
 import StatsDialog from './StatsDialog';
 
-import {
-  loseGameState,
-  mockLocalStorage,
-  newGameState,
-  setup,
-  winGameState,
-} from '../test-utils';
+import { loseGameState, mockLocalStorage, newGameState, setup, winGameState } from '../test-utils';
 
 const noop = () => {};
 

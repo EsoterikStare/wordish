@@ -1,7 +1,13 @@
 import React from 'react';
 import { func, shape } from 'prop-types';
 import {
-  Box, Grid, Menu, Switch, ToggleButton, ToggleButtonGroup, Typography,
+  Box,
+  Grid,
+  Menu,
+  Switch,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
 } from '@mui/material';
 
 import { useAppState } from '../AppStateContext';
@@ -19,10 +25,15 @@ const WordLengthItem = () => {
         <ToggleButtonGroup
           aria-label="word length"
           value={wordLength}
-          onChange={(e, newValue) => dispatch({ type: 'updateWordLength', value: newValue || wordLength })}
+          onChange={(e, newValue) =>
+            dispatch({
+              type: 'updateWordLength',
+              value: newValue || wordLength,
+            })
+          }
           exclusive
         >
-          {Object.keys(words).map((length) => (
+          {Object.keys(words).map(length => (
             <ToggleButton key={length} value={parseInt(length, 10)} aria-label={length}>
               {length}
             </ToggleButton>

@@ -2,7 +2,7 @@ import { letterStatus } from '../constants';
 
 const { ABSENT, LOCATED, PRESENT } = letterStatus;
 
-const getShareGrid = (state) => {
+const getShareGrid = state => {
   const { colorblindMode, previousGuesses } = state;
   const squares = {
     [ABSENT]: '⬛',
@@ -15,7 +15,9 @@ const getShareGrid = (state) => {
    *
    * https://darioghilardi.com/handling-newlines-with-react/
    */
-  return previousGuesses.map((word) => word.map((letter) => squares[letter.type]).join('')).join('\r\n');
+  return previousGuesses
+    .map(word => word.map(letter => squares[letter.type]).join(''))
+    .join('\r\n');
 };
 
 export default getShareGrid;

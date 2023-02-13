@@ -34,11 +34,7 @@ const AppThemeProvider = ({ children }) => {
     spacing: 4,
   });
 
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 AppThemeProvider.propTypes = {
