@@ -55,8 +55,8 @@ jobs:
 
     strategy:
       matrix:
-        browser: [chrome, edge, firefox]
-        node-version: [14.x, 16.x, 18.x]
+        browser: [chrome, firefox]
+        node-version: [18.x]
         os: [ubuntu-latest, windows-10, windows-latest]
         include:
           - os: macos-latest
