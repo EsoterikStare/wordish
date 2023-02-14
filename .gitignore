@@ -17,3 +17,7 @@ node_modules/
 
 # build / generate output
 dist
+
+# cypress recording outputs
+cypress/videos
+cypress/screenshots
