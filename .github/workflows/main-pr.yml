@@ -51,6 +51,7 @@ jobs:
 
   e2e:
     runs-on: ${{ matrix.os }}
+    environment: ci
 
     strategy:
       matrix:
@@ -81,4 +82,4 @@ jobs:
       run: npm run serve:ci
     
     - name: Run e2e tests
-      run: npm run cy:run -- --record --key $GITHUB_RUN_ID.$GITHUB_RUN_NUMBER --browser ${{ matrix.browser }}
+      run: npm run cy:run -- --record --key $CYPRESS_CLOUD_KEY --browser ${{ matrix.browser }}
