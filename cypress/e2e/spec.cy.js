@@ -38,7 +38,7 @@ describe('Wordish', () => {
         cy.findByRole('button', { name: 'Stats and Share' })
       );
     });
-    it('reveals the StatsDialog when the stats and share button is clicked', () => {
+    it('should reveal the StatsDialog when the "stats and share" button is clicked', () => {
       cy.visit('localhost:3000');
       cy.findByTestId('header-grid');
       cy.findByTestId('header-grid').within(() =>
