@@ -78,7 +78,7 @@ jobs:
       run: npm run build
     
     - name: Start up server
-      run: npm run serve:ci & wait-on http://localhost:3000
+      run: npm run serve:ci
     
     - name: Run e2e tests
       run: npm run cy:run -- --record --key $GITHUB_RUN_ID.$GITHUB_RUN_NUMBER --browser ${{ matrix.browser }}
