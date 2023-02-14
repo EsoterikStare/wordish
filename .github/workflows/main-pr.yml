@@ -57,11 +57,7 @@ jobs:
       matrix:
         browser: [chrome, firefox]
         node-version: [18.x]
-        os: [ubuntu-latest, windows-2019, windows-latest]
-        include:
-          - os: macos-latest
-            node-version: 18
-            browser: safari
+        os: [ubuntu-latest, windows-2019, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v3
