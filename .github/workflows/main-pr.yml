@@ -51,7 +51,7 @@ jobs:
 
   e2e:
     runs-on: ${{ matrix.os }}
-    environment: ci
+    # environment: ci
 
     strategy:
       matrix:
