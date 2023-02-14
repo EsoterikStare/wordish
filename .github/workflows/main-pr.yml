@@ -57,7 +57,7 @@ jobs:
       matrix:
         browser: [chrome, firefox]
         node-version: [18.x]
-        os: [ubuntu-latest, windows-10, windows-latest]
+        os: [ubuntu-latest, windows-2019, windows-latest]
         include:
           - os: macos-latest
             node-version: 18
@@ -80,6 +80,8 @@ jobs:
     
     - name: Start up server
       run: npm run serve:ci
-    
+      
     - name: Run e2e tests
-      run: npm run cy:run -- --record --key $CYPRESS_CLOUD_KEY --browser ${{ matrix.browser }}
+      run: npm run cy:run -- --browser ${{ matrix.browser }}
+      # TODO: Revisit cypress cloud setup 
+      # run: npm run cy:run -- --record --key $CYPRESS_CLOUD_KEY --browser ${{ matrix.browser }}
